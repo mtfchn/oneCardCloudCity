@@ -1,3 +1,4 @@
+//该组件是购物车
 import React, { Component } from 'react';
 import '../css/public.css'
 import {connect} from 'react-redux'

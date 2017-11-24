@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import './App.css'
-import './css/public.css'
+import './css/public.css'//公共样式
 import Home from './components/Home'
 import Classify from './components/Classify'
 import Find from './components/Find'

@@ -1,3 +1,4 @@
+//该组件是‘我的’页
 import React, { Component } from 'react';
 import '../css/public.css'
 import {connect} from 'react-redux'

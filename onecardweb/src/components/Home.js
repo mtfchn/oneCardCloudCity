@@ -1,8 +1,10 @@
+//该组件是首页
 import React, { Component } from 'react';
 import '../css/public.css'
 import {connect} from 'react-redux'
 
 const HomeUI = (props)=>{
+	//页面内容
 	return(
 		<div className="Home">
 			<input type="text" id="fid"/>
@@ -26,6 +28,7 @@ const mapStateToProps = (state)=>{
 }
 
 const mapDispatchToProps = (dispatch)=>{
+	//业务
 	return{
 		addToDo:function(data){
 			console.log(mapDispatchToProps)

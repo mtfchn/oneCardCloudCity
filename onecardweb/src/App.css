@@ -1,3 +1,4 @@
+/*-----------------------底部ul样式初步---------------------*/
 #footer{
 	list-style: none;
 	width: 100%;
@@ -5,6 +6,7 @@
 	position: fixed;
 	left: 0;
 	bottom: 0;
+	background: #CCCCCC;
 }
 #footer li{
 	float: left;
@@ -13,3 +15,4 @@
 	height: 5rem;
 	line-height: 5rem;
 }
+/*--------------------------------------------------------------*/
