@@ -1,0 +1,12 @@
+body,h1,h2,h3,h4,h5,h6,p,a,img,input,ul,li,ol,dl,dt,dd,figure,figcaption{ padding:0; margin:0}
+img{ display:block; border:0;}
+input{ outline:none}
+ul,ol{ list-style:none;}
+body{ font-size:0.14rem; font-family:"微软雅黑"; color:#000;}
+a{ text-decoration:none; color:#909090;}
+header,footer,section,figure,figcaption,main,nav,aside,article{ display:block;}
+*{ box-sizing:border-box;}
+html,body{
+	height:100%;
+	background: #eee;
+}
