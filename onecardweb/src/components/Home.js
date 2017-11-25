@@ -10,25 +10,25 @@ class HomeUI extends React.Component{
 		this.props.getData()
 	}
 	render(){
-		var props = this.props.product
+		var props = this.props
 		console.log(props)
 		return(
 		<div className="Home">
 			<div className="Home_product">			
 				{
-//					props.product.map((item,index)=>{
-//						return(
-//							<dl>
-//								<dt>
-//									<img src={item.img}/>
-//								</dt>
-//								<dd>
-//									<p>{item.name}</p>
-//								</dd>
-//							</dl>
-//						)
-//						
-//					})
+					props.product.map((item,index)=>{
+						return(
+							<dl key={item._id}>
+								<dt>
+									<img src={item.img}/>
+								</dt>
+								<dd>
+									<p>{item.name}</p>
+								</dd>
+							</dl>
+						)
+						
+					})
 				}
 				
 			</div>
