@@ -1,31 +1,32 @@
 //该组件是‘我的’页
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../css/public.css'
 import {connect} from 'react-redux'
+import Login from './login'
+import Regist from './regist'
+import Myhome from './myhome'
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    NavLink,
+    Switch,
+    Redirect
+} from 'react-router-dom'
 
-const MyUI = (props)=>{
-	return(
-		<div className="My">
-			{'my我的组件'}
-	    
-		</div>	
-	)
-		
+const MyUI = ({match}) => {
+    return (
+        <div>
+            <Router>
+                <div>
+                    <Redirect exact from={`${match.url}/`} to={`${match.url}/myhome`}/>
+                    <Route path={`${match.url}/myhome`} component={Myhome}/>
+                    <Route path={`/my/regist`} component={Regist}/>
+                    <Route path={`/my/login`} component={Login}/>
+                </div>
+            </Router>
+        </div>
+    )
 }
 
-const mapStateToProps = (state)=>{
-	return{
-		
-	}
-}
-
-const mapDispatchToProps = (dispatch)=>{
-	return{
-		
-	}
-}
-
-const My = connect(mapStateToProps, mapDispatchToProps)(MyUI);
-
-
-export default My;
+export default MyUI;

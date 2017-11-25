@@ -4,28 +4,46 @@ import '../css/public.css'
 import {connect} from 'react-redux'
 import axios from 'axios'
 
-const HomeUI = (props)=>{
-	//页面内容
-	return(
+//const HomeUI = (props)=>{
+//	//页面内容
+//	return(
+//		<div className="Home">
+//			{props.getData()}
+//			<div className="Home_product">
+//			
+//				
+//			</div>
+//		</div>	
+//	)
+//		
+//}
+
+class HomeUI extends React.Component{
+	componentDidMount(){
+		this.props.getData()
+	}
+	componentWillUnmount(){
+		this.props.getData()
+	}
+	render(){
+		var props = this.props
+		return(
 		<div className="Home">
-			<input type="text" id="fid"/>
 			{props.getData()}
-		    <button onClick={()=>{props.addToDo(document.getElementById("fid").value)}}>add todo</button>
-		    <ul>
-		    	{
-		    		props.list.map(function(item,index){
-		    			return <li key={index}>{item}</li>
-		    		})
-		    	}
-		    </ul>
+			<div className="Home_product">
+			
+				
+			</div>
 		</div>	
 	)
-		
+	}
 }
 
 const mapStateToProps = (state)=>{
+	console.log()
 	return{
-		list:state.list
+		list:state.list,
+
 	}
 }
 
@@ -44,14 +62,9 @@ const mapDispatchToProps = (dispatch)=>{
 			axios.get('/users/getdata')
 			.then(function(res){
 				console.log(res)
-//				var data = res.data.data.films;
-//				console.log(data)
-//				console.log(that.props)
-//				console.log(that.props.store)
-	//			that.addState(data)
-//				that.props.store.dispatch({
-//						type:"FILMS",
-//						payload:data
+//				dispatch({
+//					type:"PRODUCT",
+//					payload:res.data.goodlist
 //				})
 			})
 		}
