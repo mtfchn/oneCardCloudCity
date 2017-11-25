@@ -10,12 +10,26 @@ class HomeUI extends React.Component{
 		this.props.getData()
 	}
 	render(){
-		var props = this.props
+		var props = this.props.product
+		console.log(props)
 		return(
 		<div className="Home">
-
-			<div className="Home_product">
-			
+			<div className="Home_product">			
+				{
+//					props.product.map((item,index)=>{
+//						return(
+//							<dl>
+//								<dt>
+//									<img src={item.img}/>
+//								</dt>
+//								<dd>
+//									<p>{item.name}</p>
+//								</dd>
+//							</dl>
+//						)
+//						
+//					})
+				}
 				
 			</div>
 		</div>	
@@ -24,9 +38,9 @@ class HomeUI extends React.Component{
 }
 
 const mapStateToProps = (state)=>{
-	console.log()
+	console.log(state)
 	return{
-		list:state.list,
+		product:state.product
 	}
 }
 

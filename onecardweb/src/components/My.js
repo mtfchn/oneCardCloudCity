@@ -1,4 +1,4 @@
-//该组件是‘我的’页
+//该组件是‘我的’子路由页
 import React, {Component} from 'react';
 import '../css/public.css'
 import {connect} from 'react-redux'
@@ -14,15 +14,17 @@ import {
     Redirect
 } from 'react-router-dom'
 
-const MyUI = ({match}) => {
+const MyUI = () => {
     return (
         <div>
             <Router>
                 <div>
-                    <Redirect exact from={`${match.url}/`} to={`${match.url}/myhome`}/>
-                    <Route path={`${match.url}/myhome`} component={Myhome}/>
-                    <Route path={`/my/regist`} component={Regist}/>
-                    <Route path={`/my/login`} component={Login}/>
+	                <Switch>
+	                    <Redirect exact from={`/my`} to={`/my/myhome`}/>
+	                    <Route path={`/my/myhome`} component={Myhome}/>
+	                    <Route path={`/my/regist`} component={Regist}/>
+	                    <Route path={`/my/login`} component={Login}/>
+	                </Switch>
                 </div>
             </Router>
         </div>

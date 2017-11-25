@@ -17,10 +17,6 @@ function renderPage(){
 
 renderPage()
 
-store.subscribe(function() {
-	setTimeout(function() {
-		renderPage()
-	}, 200)
-})
+store.subscribe(renderPage)
 
 registerServiceWorker();

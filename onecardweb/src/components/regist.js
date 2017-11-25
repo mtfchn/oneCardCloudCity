@@ -10,7 +10,7 @@ import {
     Switch,
     Redirect
 } from 'react-router-dom'
-const MyUI = (props)=>{
+const RegistUI = (props)=>{
     return(
         <div className="My">
             {'my我的组件'}
@@ -32,7 +32,7 @@ const mapDispatchToProps = (dispatch)=>{
     }
 }
 
-const My = connect(mapStateToProps, mapDispatchToProps)(MyUI);
+const Regist = connect(mapStateToProps, mapDispatchToProps)(RegistUI);
 
 
-export default My;
+export default Regist;

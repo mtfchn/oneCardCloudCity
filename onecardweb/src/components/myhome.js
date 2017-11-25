@@ -12,7 +12,7 @@ import {
     Redirect
 } from 'react-router-dom'
 
-const MyUI = () => {
+const MyhomeUI = () => {
     return (
         <div className="My">
             {'my我的组件'}
@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
     return {}
 }
 
-const My = connect(mapStateToProps, mapDispatchToProps)(MyUI);
+const Myhome = connect(mapStateToProps, mapDispatchToProps)(MyhomeUI);
 
 
-export default My;
+export default Myhome;

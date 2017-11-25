@@ -15,38 +15,6 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom'
-//const About = ({match}) => (
-//<div>
-//  <h2>About</h2>
-//	 <ul>
-//	    <li><NavLink to={`${match.url}/haha`}>haha</NavLink></li>
-//	    <li><NavLink to={`${match.url}/xixi`}>xixi</NavLink></li>       
-//	  </ul>
-//	  <Route path={`${match.url}/haha`} component={Haha}/>
-//	  <Route path={`${match.url}/xixi`} component={Xixi}/>
-//</div>
-//)
-//const Detail = (props) => (
-//<div>
-//  <h2>Detail</h2>
-//  <p>{props.match.params.fid}</p>
-//</div>
-//)
-//const Topic = ({ match }) => (
-//<div>
-//  <h3>{match.params.topicId}</h3>
-//</div>
-//)
-//const Haha = () => (
-//<div>
-//  <h3>haha</h3>
-//</div>
-//)
-//const Xixi = () => (
-//<div>
-//  <h3>xixi</h3>
-//</div>
-//)
 
 
 const App = () => (
