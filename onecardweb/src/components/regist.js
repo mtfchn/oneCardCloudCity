@@ -28,11 +28,11 @@ export default class regist extends Component {
                 console.log(res)
                 if (res.data.code !== 1) {
                     alert(res.data);
-                    console.log(res.data)
+                    // console.log(res.data)
                     return;
                 }
                 alert('注册成功')
-                console.log('注册成功')
+                // console.log('注册成功')
             })
 
     }
