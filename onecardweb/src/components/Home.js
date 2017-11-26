@@ -36,7 +36,7 @@ class HomeUI extends React.Component{
 			
 			<div className="Home_product">	
 				<div className="product_title">
-					<i className="iconfont">&#xe61c;</i>&nbsp;推荐商品
+					<i className="iconfont">&#xe64d;</i>&nbsp;推荐商品
 					<span>更多<i className="iconfont">&#xe686;</i></span>
 				</div>
 				{
