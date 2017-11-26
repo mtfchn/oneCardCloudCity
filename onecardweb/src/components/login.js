@@ -1,6 +1,6 @@
 //该组件是‘登录’页
 import React, {Component} from 'react';
-import '../css/public.css'
+import '../css/login.css'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import {
@@ -36,18 +36,18 @@ export default class login extends Component {
     }
     render(){
         return(
-            <div>
+            <div id='all'>
                 <div className="header">
-                    <NavLink to={`/my`}>后退</NavLink>
-                    <div>登录</div>
-                    <div></div>
+                    <NavLink to={`/my`} className='back'>后退</NavLink>
+                    <div className='VIPlogin'>登录</div>
+                    <div className='find'></div>
                 </div>
                 <div className='content'>
-                    <input type="text" id='username' placeholder='请输入用户名'/><br/>
-                    <input type="text" id='password' placeholder='请输入密码'/><br/>
+                    <div className='inputDiv'><input type="text" id='username' placeholder='请输入用户名'/></div>
+                    <div className='inputDiv'><input type="text" id='password' placeholder='请输入密码'/></div>
 
                     <button onClick={() => this.login()}>登录</button>
-                    <NavLink to={`/my/regist`}>会员注册</NavLink>
+                    <NavLink to={`/my/regist`} className='VIPregist'>会员注册</NavLink>
                 </div>
             </div>
         )
