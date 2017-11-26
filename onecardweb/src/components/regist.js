@@ -41,14 +41,24 @@ export default class regist extends Component {
         return (
             <div id='regist'>
                 <div className="header">
-                    <NavLink to={`/my/login`} className='back'>后退</NavLink>
+                    <NavLink to={`/my/login`} className='back iconfont'>&#xe50d;</NavLink>
                     <div className='VIPregist'>会员注册</div>
-                    <div className='find'></div>
+                    <div className='find iconfont'>&#xe60b;</div>
                 </div>
                 <div className='content'>
-                    <div className='inputDiv'><input type="text" id='username' placeholder='请输入用户名'/></div>
-                    <div className='inputDiv'><input type="text" id='password' placeholder='请输入密码'/></div>
-                    <div className='inputDiv'><input type="text" id='passwordagain' placeholder='请再次输入密码'/></div>
+                    <div className='inputDiv'>
+                        <i className='user iconfont'>&#xe612;</i>
+                        <input type="text" id='username' placeholder='请输入用户名'/>
+                        <i className='erweima iconfont'>&#xe642;</i>
+                    </div>
+                    <div className='inputDiv'>
+                        <i className='lock iconfont'>&#xe639;</i>
+                        <input type="text" id='password' placeholder='请输入密码'/>
+                    </div>
+                    <div className='inputDiv'>
+                        <i className='lock iconfont'>&#xe690;</i>
+                        <input type="text" id='passwordagain' placeholder='请再次输入密码'/>
+                    </div>
                     <button onClick={() => this.regist()}>立即注册</button>
                 </div>
 

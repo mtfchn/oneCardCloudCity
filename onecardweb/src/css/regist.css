@@ -32,6 +32,10 @@
 #regist .header .find {
   width: 10%;
   display: inline-block;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
 }
 #regist .content {
   height: 60rem;
@@ -45,10 +49,18 @@
   border-radius: 5px;
   background: #ffffff;
 }
+#regist .content .inputDiv i {
+  height: 100%;
+  width: 10%;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+}
 #regist .content .inputDiv input {
   height: 100%;
-  width: 100%;
+  width: 80%;
   border: 0;
+  display: inline-block;
 }
 #regist .content button {
   width: 90%;
