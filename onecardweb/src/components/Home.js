@@ -4,6 +4,7 @@ import '../css/public.css'
 import '../css/home.css'
 import {connect} from 'react-redux'
 import axios from 'axios'
+import { Carousel } from 'antd';//引入antd
 
 
 class HomeUI extends React.Component{
@@ -26,7 +27,7 @@ class HomeUI extends React.Component{
 				<div className='header_r'><i className="iconfont">&#xe642;</i><i className="iconfont">&#xe645;</i></div>
 			</div>
 
-			<div className="Home_swiper">
+			<div className="Home_swiper">				
 				轮播图
 			</div>
 			

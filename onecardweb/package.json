@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^2.13.10",
     "axios": "^0.17.1",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
@@ -18,12 +19,13 @@
     "eject": "react-scripts eject"
   },
   "proxy": {
-      "/users": {
-        "target": "http://localhost:8000",
-        "changeOrigin": true,
-        "pathRewrite": { "^/users": "/users" },
-        "ws": true
-      }
+    "/users": {
+      "target": "http://localhost:8000",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/users": "/users"
+      },
+      "ws": true
+    }
   }
-
 }
