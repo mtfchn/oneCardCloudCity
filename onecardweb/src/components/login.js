@@ -30,6 +30,7 @@ export default class login extends Component {
                     // console.log(res.data.message)
                     return;
                 }
+                document.cookie = 'user=' + document.querySelector('#username').value + ';path=/';
                 alert('登录成功')
                 // console.log('登录成功')
             })

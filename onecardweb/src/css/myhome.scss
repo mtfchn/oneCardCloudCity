@@ -1,0 +1,57 @@
+#VipContent{
+  height: 100%;
+  width: 100%;
+  .header{
+    height: 50px;
+    width: 100%;
+    background: #c91919;
+    color: #fff;
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+  }
+  .user{
+    height:170px;
+    background: #e2445d;
+    overflow: hidden;
+    .thisLogin{
+      margin-top: 70px;
+      width: 100%;
+      height:30px;
+      line-height: 30px;
+      text-align: center;
+      color:#fff;
+      display: block;
+      font-size: 20px;
+    }
+  }
+  .myOrder{
+    height:60px;
+    width: 100%;
+    background: #fff;
+    margin-top: 5px;
+    .orderi{
+      width:60px;
+      text-align: center;
+      color:#f7cb03;
+      height: 60px;
+      line-height: 60px;
+      font-size: 30px;
+      float: left;
+    }
+    .thisOrder{
+      height: 60px;
+      line-height: 60px;
+      font-size: 16px;
+      color:#000;
+    }
+    .right{
+      float: right;
+      height: 60px;
+      line-height: 60px;
+      font-size: 14px;
+      color:#4d4d4d;
+      margin-right: 10px;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 //该组件是‘用户’页
 import React, {Component} from 'react';
-// import '../css/public.css'
+import '../css/myhome.css'
 import {connect} from 'react-redux'
 import Login from './login'
 import {
@@ -14,16 +14,15 @@ import {
 
 const MyhomeUI = () => {
     return (
-        <div id='all'>
-            <div className='header'>
-                <div className='VIPregist'>会员中心</div>
-            </div>
+        <div id='VipContent'>
+            <div className='header'>会员中心</div>
             <div className='user'>
-                <div className=''>这里是头像</div>
-                <NavLink to={`/my/login`}>点击登录</NavLink>
+                <NavLink to={`/my/login`} className='thisLogin'>点击登录</NavLink>
             </div>
-            <div>
-                <NavLink to={`/my/order`}>我的订单</NavLink>
+            <div className='myOrder'>
+                <i className='iconfont orderi'>&#xe69a;</i>
+                <NavLink to={`/my/order`} className='thisOrder'>我的订单</NavLink>
+                <NavLink to={`/my/order`} className='right'>全部订单<i className='iconfont'>&#xe686;</i></NavLink>
             </div>
         </div>
     )
