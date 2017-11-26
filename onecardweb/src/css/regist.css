@@ -1,4 +1,4 @@
-#all {
+#regist {
   height: 100%;
   width: 100%;
   background: #f5f5f5;
@@ -8,13 +8,13 @@
   top: 0;
   left: 0;
 }
-#all .header {
+#regist .header {
   height: 50px;
   width: 100%;
   background: #c91919;
   color: #fff;
 }
-#all .header .back {
+#regist .header .back {
   width: 10%;
   display: inline-block;
   line-height: 50px;
@@ -22,21 +22,21 @@
   color: #fff;
   font-size: 16px;
 }
-#all .header .VIPregist {
+#regist .header .VIPregist {
   display: inline-block;
   width: 80%;
   font-size: 18px;
   line-height: 50px;
   text-align: center;
 }
-#all .header .find {
+#regist .header .find {
   width: 10%;
   display: inline-block;
 }
-#all .content {
+#regist .content {
   height: 60rem;
 }
-#all .content .inputDiv {
+#regist .content .inputDiv {
   width: 90%;
   height: 50px;
   margin-left: 5%;
@@ -45,12 +45,12 @@
   border-radius: 5px;
   background: #ffffff;
 }
-#all .content .inputDiv input {
+#regist .content .inputDiv input {
   height: 100%;
   width: 100%;
   border: 0;
 }
-#all .content button {
+#regist .content button {
   width: 90%;
   height: 50px;
   margin-left: 5%;

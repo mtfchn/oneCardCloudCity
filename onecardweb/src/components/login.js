@@ -1,6 +1,6 @@
 //该组件是‘登录’页
 import React, {Component} from 'react';
-// import styles from '../css/login.css'
+import '../css/login.css'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import {
@@ -36,7 +36,7 @@ export default class login extends Component {
     }
     render(){
         return(
-            <div id='all'>
+            <div id='login'>
                 <div className="header">
                     <NavLink to={`/my`} className='back'>后退</NavLink>
                     <div className='VIPlogin'>登录</div>

@@ -1,6 +1,6 @@
 //该组件是‘注册’页
 import React, {Component} from 'react';
-// import '../css/regist.css'
+import '../css/regist.css'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {
@@ -39,7 +39,7 @@ export default class regist extends Component {
 
     render() {
         return (
-            <div id='all'>
+            <div id='regist'>
                 <div className="header">
                     <NavLink to={`/my/login`} className='back'>后退</NavLink>
                     <div className='VIPregist'>会员注册</div>
