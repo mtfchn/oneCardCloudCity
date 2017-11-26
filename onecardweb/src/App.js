@@ -22,11 +22,11 @@ const App = () => (
     <Router>
         <div>
             <ul id='footer'>
-                <li><NavLink activeClassName="autocolor" to="/home">首页</NavLink></li>
-                <li><NavLink activeClassName="autocolor" to="/classify">分类</NavLink></li>
-                <li><NavLink activeClassName="autocolor" to="/find">发现</NavLink></li>
-                <li><NavLink activeClassName="autocolor" to="/cart">购物车</NavLink></li>
-                <li><NavLink activeClassName="autocolor" to="/my">我的</NavLink></li>
+                <li><NavLink activeClassName="autocolor" to="/home"><p><i className="iconfont">&#xe6bc;</i></p>首页</NavLink></li>
+                <li><NavLink activeClassName="autocolor" to="/classify"><p><i className="iconfont">&#xe603;</i></p>分类</NavLink></li>
+                <li><NavLink activeClassName="autocolor" to="/find"><p><i className="iconfont">&#xe6f4;</i></p>发现</NavLink></li>
+                <li><NavLink activeClassName="autocolor" to="/cart"><p><i className="iconfont">&#xf0148;</i></p>购物车</NavLink></li>
+                <li><NavLink activeClassName="autocolor" to="/my"><p><i className="iconfont">&#xe612;</i></p>我的</NavLink></li>
             </ul>
 
 
