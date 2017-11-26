@@ -1,6 +1,7 @@
 //该组件是‘注册’页
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../css/public.css'
+import axios from 'axios'
 import {connect} from 'react-redux'
 import {
     BrowserRouter as Router,
@@ -10,29 +11,48 @@ import {
     Switch,
     Redirect
 } from 'react-router-dom'
-const RegistUI = (props)=>{
-    return(
-        <div className="My">
-            {'my我的组件'}
-            注册也
-        </div>
-    )
 
-}
+export default class regist extends Component {
+    constructor() {
+        super();
+        this.regist = this.regist.bind(this);
+    }
 
-const mapStateToProps = (state)=>{
-    return{
+    regist() {
+        var that = this;
+        axios.post('/users/regist', {
+            username: document.querySelector('#username').value,
+            password: document.querySelector('#password').value
+        })
+            .then((res) => {
+                console.log(res)
+                if (res.data.code !== 1) {
+                    alert(res.data);
+                    console.log(res.data)
+                    return;
+                }
+                alert('注册成功')
+                console.log('注册成功')
+            })
 
     }
-}
 
-const mapDispatchToProps = (dispatch)=>{
-    return{
+    render() {
+        return (
+            <div>
+                <div className="header">
+                    <div></div>
+                    <div>会员注册</div>
+                    <div></div>
+                </div>
+                <div className='content'>
+                    <input type="text" id='username' placeholder='请输入用户名'/><br/>
+                    <input type="text" id='password' placeholder='请输入密码'/><br/>
+                    <input type="text" id='passwordagain' placeholder='请再次输入密码'/><br/>
 
+                    <button onClick={() => this.regist()}>注册</button>
+                </div>
+            </div>
+        )
     }
 }
-
-const Regist = connect(mapStateToProps, mapDispatchToProps)(RegistUI);
-
-
-export default Regist;
