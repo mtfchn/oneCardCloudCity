@@ -27,9 +27,18 @@ class HomeUI extends React.Component{
 			</div>
 
 			<div className="Home_swiper">
-				
+				轮播图
 			</div>
-			<div className="Home_product">			
+			
+			<div className="Home_list">
+				list
+			</div>
+			
+			<div className="Home_product">	
+				<div className="product_title">
+					<i className="iconfont">&#xe61c;</i>&nbsp;推荐商品
+					<span>更多<i className="iconfont">&#xe686;</i></span>
+				</div>
 				{
 					props.product.map((item,index)=>{
 						return(
