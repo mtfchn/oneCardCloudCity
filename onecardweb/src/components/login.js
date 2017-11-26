@@ -1,6 +1,6 @@
 //该组件是‘登录’页
 import React, {Component} from 'react';
-import '../css/login.css'
+import styles from '../css/login.css'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import {
