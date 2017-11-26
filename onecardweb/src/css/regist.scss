@@ -1,0 +1,66 @@
+#all {
+  height: 100%;
+  width: 100%;
+  background: #f5f5f5;
+  z-index: 20;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+  .header {
+    height: 50px;
+    width: 100%;
+    background: #c91919;
+    color: #fff;
+    .back {
+      width: 10%;
+      display: inline-block;
+      line-height: 50px;
+      text-align: center;
+      color: #fff;
+      font-size:16px;
+    }
+    .VIPregist {
+      display: inline-block;
+      width: 80%;
+      font-size: 18px;
+      line-height: 50px;
+      text-align: center;
+
+    }
+    .find {
+      width: 10%;
+      display: inline-block;
+    }
+  }
+  .content{
+    height:60rem;
+    .inputDiv{
+      width:90%;
+      height:50px;
+      margin-left: 5%;
+      margin-top: 10px;
+      border:1px solid #9a9a9a;
+      border-radius: 5px;
+      background: #ffffff;
+      input{
+        height:100%;
+        width: 100%;
+        border: 0;
+      }
+    }
+    button{
+      width:90%;
+      height:50px;
+      margin-left: 5%;
+      margin-top: 10px;
+      border-radius: 5px;
+      border:0;
+      background: #c91919;
+      font-size: 18px;
+      line-height: 50px;
+      text-align: center;
+      color:#fff;
+    }
+  }
+}

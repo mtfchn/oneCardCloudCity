@@ -1,6 +1,6 @@
 //该组件是‘注册’页
 import React, {Component} from 'react';
-import '../css/public.css'
+import '../css/regist.css'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {
@@ -39,18 +39,19 @@ export default class regist extends Component {
 
     render() {
         return (
-            <div>
+            <div id='all'>
                 <div className="header">
-                    <NavLink to={`/my/login`}>后退</NavLink>
-                    <div>会员注册</div>
-                    <div></div>
+                    <NavLink to={`/my/login`} className='back'>后退</NavLink>
+                    <div className='VIPregist'>会员注册</div>
+                    <div className='find'></div>
                 </div>
                 <div className='content'>
-                    <input type="text" id='username' placeholder='请输入用户名'/><br/>
-                    <input type="text" id='password' placeholder='请输入密码'/><br/>
-                    <input type="text" id='passwordagain' placeholder='请再次输入密码'/><br/>
-                    <button onClick={() => this.regist()}>注册</button>
+                    <div className='inputDiv'><input type="text" id='username' placeholder='请输入用户名'/></div>
+                    <div className='inputDiv'><input type="text" id='password' placeholder='请输入密码'/></div>
+                    <div className='inputDiv'><input type="text" id='passwordagain' placeholder='请再次输入密码'/></div>
+                    <button onClick={() => this.regist()}>立即注册</button>
                 </div>
+
             </div>
         )
     }
