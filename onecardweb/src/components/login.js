@@ -43,9 +43,14 @@ export default class login extends Component {
                     <div className='find'></div>
                 </div>
                 <div className='content'>
-                    <div className='inputDiv'><input type="text" id='username' placeholder='请输入用户名'/></div>
-                    <div className='inputDiv'><input type="text" id='password' placeholder='请输入密码'/></div>
-
+                    <div className='inputDiv'>
+                        <i className='user iconfont'>&#xe612;</i>
+                        <input type="text" id='username' placeholder='请输入用户名'/>
+                    </div>
+                    <div className='inputDiv'>
+                        <i className='lock iconfont'>&#xe639;</i>
+                        <input type="text" id='password' placeholder='请输入密码'/>
+                    </div>
                     <button onClick={() => this.login()}>登录</button>
                     <NavLink to={`/my/regist`} className='VIPregist'>会员注册</NavLink>
                 </div>
