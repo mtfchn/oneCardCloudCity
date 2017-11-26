@@ -47,7 +47,11 @@ class HomeUI extends React.Component{
 									<img src={item.img}/>
 								</dt>
 								<dd>
-									<p>{item.name}</p>
+									<h3>{item.name}</h3>
+									<p>
+										<i className="iconfont">&#xe68a;</i>{item.price}
+										<span><i className="iconfont">&#xe68a;</i>{item.oldPrice}</span>
+									</p>
 								</dd>
 							</dl>
 						)
