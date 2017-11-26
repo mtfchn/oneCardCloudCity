@@ -41,7 +41,7 @@ export default class regist extends Component {
         return (
             <div>
                 <div className="header">
-                    <div></div>
+                    <NavLink to={`/my/login`}>后退</NavLink>
                     <div>会员注册</div>
                     <div></div>
                 </div>
@@ -49,7 +49,6 @@ export default class regist extends Component {
                     <input type="text" id='username' placeholder='请输入用户名'/><br/>
                     <input type="text" id='password' placeholder='请输入密码'/><br/>
                     <input type="text" id='passwordagain' placeholder='请再次输入密码'/><br/>
-
                     <button onClick={() => this.regist()}>注册</button>
                 </div>
             </div>

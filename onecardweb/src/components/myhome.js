@@ -15,9 +15,14 @@ import {
 const MyhomeUI = () => {
     return (
         <div className="My">
-            {'my我的组件'}
-            用户也
-            <NavLink to={`/my/login`}>login</NavLink>
+            <div>会员中心</div>
+            <div>
+                <div>这里是头像</div>
+                <NavLink to={`/my/login`}>点击登录</NavLink>
+            </div>
+            <div>
+                <NavLink to={`/my/order`}>我的订单</NavLink>
+            </div>
         </div>
     )
 

@@ -4,6 +4,7 @@ import '../css/public.css'
 import {connect} from 'react-redux'
 import Login from './login'
 import Regist from './regist'
+import Order from './order'
 import Myhome from './myhome'
 import {
     BrowserRouter as Router,
@@ -23,7 +24,8 @@ const MyUI = () => {
 	                    <Redirect exact from={`/my`} to={`/my/myhome`}/>
 	                    <Route path={`/my/myhome`} component={Myhome}/>
 	                    <Route path={`/my/regist`} component={Regist}/>
-	                    <Route path={`/my/login`} component={Login}/>
+                        <Route path={`/my/login`} component={Login}/>
+                        <Route path={`/my/order`} component={Order}/>
 	                </Switch>
                 </div>
             </Router>

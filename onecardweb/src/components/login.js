@@ -2,7 +2,6 @@
 import React, {Component} from 'react';
 import '../css/public.css'
 import {connect} from 'react-redux'
-import Regist from './regist'
 import axios from 'axios'
 import {
     BrowserRouter as Router,
@@ -39,7 +38,7 @@ export default class login extends Component {
         return(
             <div>
                 <div className="header">
-                    <div></div>
+                    <NavLink to={`/my`}>后退</NavLink>
                     <div>登录</div>
                     <div></div>
                 </div>
