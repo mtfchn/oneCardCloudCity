@@ -19,11 +19,15 @@ class HomeUI extends React.Component{
 				<div className='header_l'>大连<i className="iconfont">&#xe61b;</i></div>
 				<div className='header_c'>
 					<div className="header_c_box">
-						<i class="iconfont">&#xe60b;</i>
+						<i className="iconfont">&#xe60b;</i>
 						<input type="text" placeholder="请输入要搜索的商品"/>
 					</div>				
 				</div>
-				<div className='header_r'><i class="iconfont">&#xe642;</i><i class="iconfont">&#xe645;</i></div>
+				<div className='header_r'><i className="iconfont">&#xe642;</i><i className="iconfont">&#xe645;</i></div>
+			</div>
+
+			<div className="Home_swiper">
+				
 			</div>
 			<div className="Home_product">			
 				{

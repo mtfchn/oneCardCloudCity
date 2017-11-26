@@ -3,6 +3,9 @@
   height: 5rem;
   background: red;
   font-size: 1.6rem;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 .Home .Home_header .header_l {
   width: 20%;
