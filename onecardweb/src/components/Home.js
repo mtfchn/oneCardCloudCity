@@ -1,6 +1,7 @@
 //该组件是首页
 import React, { Component } from 'react';
 import '../css/public.css'
+import '../css/home.css'
 import {connect} from 'react-redux'
 import axios from 'axios'
 
@@ -14,6 +15,16 @@ class HomeUI extends React.Component{
 		console.log(props)
 		return(
 		<div className="Home">
+			<div className="Home_header">
+				<div className='header_l'>大连<i className="iconfont">&#xe61b;</i></div>
+				<div className='header_c'>
+					<div className="header_c_box">
+						<i class="iconfont">&#xe60b;</i>
+						<input type="text" placeholder="请输入要搜索的商品"/>
+					</div>				
+				</div>
+				<div className='header_r'><i class="iconfont">&#xe642;</i><i class="iconfont">&#xe645;</i></div>
+			</div>
 			<div className="Home_product">			
 				{
 					props.product.map((item,index)=>{
