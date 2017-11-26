@@ -60,6 +60,15 @@
   height: 20rem;
   margin-top: 5rem;
 }
+.Home .Home_swiper .swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.Home .Home_swiper .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+}
 .Home .Home_list {
   width: 100%;
   height: 20rem;

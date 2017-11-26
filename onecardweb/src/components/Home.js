@@ -1,21 +1,26 @@
 //该组件是首页
-import React, { Component } from 'react';
+import React, {
+	Component
+} from 'react';
 import '../css/public.css'
 import '../css/home.css'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import axios from 'axios'
-import { Carousel } from 'antd';//引入antd
+import { Carousel } from 'antd'; //引入antd
 
-
-class HomeUI extends React.Component{
-	componentDidMount(){
-		this.props.getData()
+class HomeUI extends React.Component {
+	
+	componentDidMount() {
+		this.props.getData();
+		if(window.swiperFun){
+			window.swiperFun(); 
+		}
 	}
-	render(){
+	render() {
 		var props = this.props
 		console.log(props)
 		return(
-		<div className="Home">
+			<div className="Home">
 			<div className="Home_header">
 				<div className='header_l'>大连<i className="iconfont">&#xe61b;</i></div>
 				<div className='header_c'>
@@ -28,7 +33,15 @@ class HomeUI extends React.Component{
 			</div>
 
 			<div className="Home_swiper">				
-				轮播图
+				<div className="swiper-container">
+				    <div className="swiper-wrapper">
+				      <div className="swiper-slide">Slide 1</div>
+				      <div className="swiper-slide">Slide 2</div>
+				      <div className="swiper-slide">Slide 3</div>
+				      <div className="swiper-slide">Slide 4</div>
+				    </div>				    
+				    <div className="swiper-pagination"></div>				    
+				  </div>
 			</div>
 			
 			<div className="Home_list">
@@ -61,38 +74,37 @@ class HomeUI extends React.Component{
 				}
 				
 			</div>
-		</div>	
-	)
+		</div>
+		)
 	}
 }
 
-const mapStateToProps = (state)=>{
+const mapStateToProps = (state) => {
 	console.log(state)
-	return{
-		product:state.product
+	return {
+		product: state.product
 	}
 }
 
-const mapDispatchToProps = (dispatch)=>{
+const mapDispatchToProps = (dispatch) => {
 	//业务
-	return{
+	return {
 
-		getData:function(){
+		getData: function() {
 			var that = this
 			axios.get('/users/getdata')
-			.then(function(res){
-				console.log(res)
-				dispatch({
-					type:"PRODUCT",
-					payload:res.data.goodlist
+				.then(function(res) {
+					console.log(res)
+					dispatch({
+						type: "PRODUCT",
+						payload: res.data.goodlist
+					})
 				})
-			})
 			console.log('getData::run')
 		}
 	}
 }
 
 const Home = connect(mapStateToProps, mapDispatchToProps)(HomeUI);
-
 
 export default Home;
