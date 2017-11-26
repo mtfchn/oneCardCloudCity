@@ -4,6 +4,11 @@ import '../css/login.css'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import {
+    createBrowserHistory,
+    createHashHistory,
+    createMemoryHistory
+} from 'history'
+import {
     BrowserRouter as Router,
     Route,
     Link,
@@ -18,6 +23,12 @@ export default class login extends Component {
         this.login = this.login.bind(this)
     }
     login(){
+        var history = createBrowserHistory({
+            basename: '', // 基链接
+            forceRefresh: true, // 是否强制刷新整个页面
+            keyLength: 6, // location.key的长度
+            getUserConfirmation: (message, callback) => callback(window.confirm(message)) // 跳转拦截函数
+        })
         var that = this;
         axios.post('/users/login', {
             username: document.querySelector('#username').value,
@@ -31,6 +42,7 @@ export default class login extends Component {
                     return;
                 }
                 document.cookie = 'user=' + document.querySelector('#username').value + ';path=/';
+                history.push('/my/myhome')
                 alert('登录成功')
                 // console.log('登录成功')
             })
