@@ -15,11 +15,15 @@
 	text-align: center;
 	height: 5rem;
 	margin-top: 1rem;
+	color: #8a8a8a
 	
+}
+#footer li a{
+	color: #8a8a8a
 }
 #footer li .iconfont{
 	font-size: 1.8rem;
-	color: #8a8a8a;
+	color: #8a8a8a !important;
 	margin-bottom: 5px;
 }
 /*--------------------------------------------------------------*/

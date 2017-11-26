@@ -33,15 +33,12 @@ class HomeUI extends React.Component {
 			</div>
 
 			<div className="Home_swiper">				
-				<div className="swiper-container">
-				    <div className="swiper-wrapper">
-				      <div className="swiper-slide">Slide 1</div>
-				      <div className="swiper-slide">Slide 2</div>
-				      <div className="swiper-slide">Slide 3</div>
-				      <div className="swiper-slide">Slide 4</div>
-				    </div>				    
-				    <div className="swiper-pagination"></div>				    
-				  </div>
+				<Carousel autoplay>
+				    <div>1</div>
+				    <div>2</div>
+				    <div>3</div>
+				    <div>4</div>
+				</Carousel>
 			</div>
 			
 			<div className="Home_list">

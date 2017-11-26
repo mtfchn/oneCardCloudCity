@@ -12,9 +12,6 @@
 		<link rel="manifest" href="%PUBLIC_URL%/manifest.json">
 		<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
 
-		<!--引用swiper-->
-		<link rel="stylesheet" type="text/css" href="./Swiper/dist/css/swiper.min.css" />
-		<script src="./Swiper/dist/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 
 		<!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -58,23 +55,5 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 	</body>
-
-	<script type="text/javascript">
-		//swiper设置
-		window.swiperFun = function() {
-			swiper = new Swiper('.swiper-container', {
-				autoplay: {
-					delay: 2500,
-					disableOnInteraction: false,
-				},
-				loop: true,
-				pagination: {
-					el: '.swiper-pagination',
-					clickable: true,
-				}
-			});
-		}
-		swiperFun();
-	</script>
 
 </html>
