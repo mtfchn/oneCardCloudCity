@@ -26,6 +26,19 @@
   display: block;
   font-size: 20px;
 }
+#VipContent .user .drop {
+  width: 28%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin-left: 37%;
+  color: #e2445d;
+  font-weight: 600;
+  border: 0;
+  border-radius: 5px;
+  display: block;
+  font-size: 20px;
+}
 #VipContent .myOrder {
   height: 60px;
   width: 100%;

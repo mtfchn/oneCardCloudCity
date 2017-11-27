@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import '../css/regist.css'
 import axios from 'axios'
+import {createBrowserHistory} from 'history'
 import {NavLink} from 'react-router-dom'
 
 export default class regist extends Component {
@@ -11,6 +12,12 @@ export default class regist extends Component {
     }
 
     regist() {
+        var history = createBrowserHistory({
+            basename: '', // 基链接
+            forceRefresh: true, // 是否强制刷新整个页面
+            keyLength: 6, // location.key的长度
+            getUserConfirmation: (message, callback) => callback(window.confirm(message)) // 跳转拦截函数
+        })
         if(document.querySelector('#username').value.length < 6){
             alert('用户名长度要大于等于6位');
             return;
@@ -34,6 +41,7 @@ export default class regist extends Component {
                     // console.log(res.data)
                     return;
                 }
+                history.push('/my/login')
                 alert('注册成功')
                 // console.log('注册成功')
             })
