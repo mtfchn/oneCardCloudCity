@@ -50,8 +50,9 @@ class MyhomeUI extends React.Component {
     }
 
     render() {
+        var list = '';
         if (this.props.product === 100) {
-            var list = (
+             list = (
                 <div id='VipContent'>
                     <div className='header'>会员中心</div>
                     <div className='user'>
@@ -66,7 +67,7 @@ class MyhomeUI extends React.Component {
             )
 
         } else {
-            var list = (
+             list = (
                 <div id='VipContent'>
                     <div className='header'>会员中心</div>
                     <div className='user'>
@@ -115,7 +116,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         getName: function () {
             function getCookie(name) {
-                var cookie = document.cookie;
+                // var cookie = document.cookie;
                 var arr = document.cookie.split('; ');
                 var name_value;
                 for (var i = 0; i < arr.length; i++) {

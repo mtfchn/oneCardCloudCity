@@ -1,5 +1,5 @@
 //该组件是发现页
-import React, { Component } from 'react';
+import React from 'react';
 import '../css/public.css'
 import {connect} from 'react-redux'
 

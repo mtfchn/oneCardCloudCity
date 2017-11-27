@@ -1,5 +1,5 @@
 //该组件是分类页
-import React, { Component } from 'react';
+import React from 'react';
 import '../css/public.css'
 import {connect} from 'react-redux'
 
