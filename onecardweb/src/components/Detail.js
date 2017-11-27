@@ -4,6 +4,14 @@ import '../css/public.css'
 import '../css/detail.css'
 import {connect} from 'react-redux'
 import axios from 'axios'
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    NavLink,
+    Switch,
+    Redirect
+} from 'react-router-dom'
 
 class DetailUI extends React.Component{
 	componentDidMount(){
@@ -20,7 +28,11 @@ class DetailUI extends React.Component{
 						return(
 							<div key={item._id}>
 								<div className="Cart_header">
-									<div className="Cart_header_l"><i className="iconfont">&#xe50d;</i></div>
+									<div className="Cart_header_l">
+										<Link to="/home">
+											<i className="iconfont">&#xe50d;</i>
+										</Link>
+									</div>
 									<div className="Cart_header_c">{item.name}</div>
 									<div className="Cart_header_r"><i className="iconfont">&#xe996;</i></div>
 								</div>
