@@ -8,7 +8,7 @@ import axios from 'axios'
 class DetailUI extends React.Component{
 	componentDidMount(){
 		console.log(this.props.match.params.productid)
-		this.props.getDetail(this.props.match.params.productid)
+		this.props.getDetail(this.props.match.params.productid)//调用getDetail函数
 	}
 	render(){
 		var props=this.props
@@ -16,13 +16,22 @@ class DetailUI extends React.Component{
 		return(
 			<div className="Cart">
 				{
-					props.productdetail.map((item,index)=>{
+					props.productdetail.map((item,index)=>{//循环返回的数据
 						return(
 							<div key={item._id}>
 								<div className="Cart_header">
 									<div className="Cart_header_l"><i className="iconfont">&#xe50d;</i></div>
 									<div className="Cart_header_c">{item.name}</div>
 									<div className="Cart_header_r"><i className="iconfont">&#xe996;</i></div>
+								</div>
+								<div className="Cart_img">
+									<img src={item.img}/>
+								</div>
+								<div className="Cart_info">
+									<h2>
+										<i className="iconfont">&#xe68a;</i>{item.price}
+										<span><i className="iconfont">&#xe68a;</i>{item.oldPrice}</span>
+									</h2>
 								</div>
 							</div>
 						)
@@ -34,8 +43,6 @@ class DetailUI extends React.Component{
 		)
 	}
 }
-
-
 const mapStateToProps = (state)=>{
 	console.log(state)
 	return{

@@ -7,7 +7,7 @@ import cookieName from "./cookieName";
 
 const reducers = combineReducers({
     list: listReducers,//拆分函数
-    product: productReducers,
+    product: productReducers,//主页商品
     cookie: findCookie,//判定是否登录
     cookiename: cookieName,//取登录名
 })
