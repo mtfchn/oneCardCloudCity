@@ -88,7 +88,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 
 		getData: function() {
-			var that = this
+
 			axios.get('/users/getdata')
 				.then(function(res) {
 					console.log(res)
