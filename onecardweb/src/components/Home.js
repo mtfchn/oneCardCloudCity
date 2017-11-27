@@ -8,15 +8,15 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import { Carousel } from 'antd'; //引入antd
 import {
-    BrowserRouter as Router,
-    Route,
+    // BrowserRouter as Router,
+    // Route,
     Link,
-    NavLink,
-    Switch,
-    Redirect
+    // NavLink,
+    // Switch,
+    // Redirect
 } from 'react-router-dom'
 
-class HomeUI extends React.Component {
+class HomeUI extends Component {
 	
 	componentDidMount() {
 		this.props.getData();
@@ -24,7 +24,7 @@ class HomeUI extends React.Component {
 	}
 	render() {
 		var props = this.props
-		console.log(props)
+		// console.log(props)
 		return(
 			<div className="Home">
 			<div className="Home_header">
@@ -63,7 +63,7 @@ class HomeUI extends React.Component {
 								<dl key={item._id}>
 									<Link to={"/detail/" + item._id}>
 										<dt>
-											<img src={item.img}/>
+											<img src={item.img} alt='img'/>
 										</dt>
 										<dd>
 											<h3>{item.name}</h3>
@@ -87,7 +87,7 @@ class HomeUI extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-	console.log(state)
+	// console.log(state)
 	return {
 		product: state.product
 	}
@@ -100,13 +100,13 @@ const mapDispatchToProps = (dispatch) => {
 
 			axios.get('/users/getdata')
 				.then(function(res) {
-					console.log(res)
+					// console.log(res)
 					dispatch({
 						type: "PRODUCT",
 						payload: res.data.goodlist
 					})
 				})
-			console.log('getData::run')
+			// console.log('getData::run')
 		}
 	}
 }

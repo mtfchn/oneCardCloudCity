@@ -5,12 +5,12 @@ import '../css/detail.css'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import {
-    BrowserRouter as Router,
-    Route,
+    // BrowserRouter as Router,
+    // Route,
     Link,
-    NavLink,
-    Switch,
-    Redirect
+    // NavLink,
+    // Switch,
+    // Redirect
 } from 'react-router-dom'
 
 class DetailUI extends Component {
@@ -90,7 +90,7 @@ class DetailUI extends Component {
                                     <div className="Cart_header_r"><i className="iconfont">&#xe996;</i></div>
                                 </div>
                                 <div className="Cart_img">
-                                    <img src={item.img}/>
+                                    <img src={item.img} alt='img'/>
                                 </div>
                                 <div className="Cart_info">
                                     <h2>
@@ -143,7 +143,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         getName: function () {
             function getCookie(name) {
-                var cookie = document.cookie;
+                // var cookie = document.cookie;
                 var arr = document.cookie.split('; ');
                 var name_value;
                 for (var i = 0; i < arr.length; i++) {
