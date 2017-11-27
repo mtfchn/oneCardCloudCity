@@ -1,15 +1,14 @@
 //该组件是‘订单’页
-import React, {Component} from 'react';
+import React from 'react';
 import '../css/public.css'
 import {connect} from 'react-redux'
-import Login from './login'
 import {
-    BrowserRouter as Router,
-    Route,
-    Link,
+    // BrowserRouter as Router,
+    // Route,
+    // Link,
     NavLink,
-    Switch,
-    Redirect
+    // Switch,
+    // Redirect
 } from 'react-router-dom'
 
 const MyhomeUI = () => {

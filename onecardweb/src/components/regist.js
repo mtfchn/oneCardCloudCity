@@ -2,15 +2,7 @@
 import React, {Component} from 'react';
 import '../css/regist.css'
 import axios from 'axios'
-import {connect} from 'react-redux'
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    NavLink,
-    Switch,
-    Redirect
-} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 export default class regist extends Component {
     constructor() {
@@ -19,13 +11,24 @@ export default class regist extends Component {
     }
 
     regist() {
-        var that = this;
+        if(document.querySelector('#username').value.length < 6){
+            alert('用户名长度要大于等于6位');
+            return;
+        }
+        if(document.querySelector('#password').value.length < 6){
+            alert('密码长度要大于等于6位');
+            return;
+        }
+        if(document.querySelector('#password').value !== document.querySelector('#passwordagain').value){
+            alert('两次输入的密码不一致');
+            return;
+        }
         axios.post('/users/regist', {
             username: document.querySelector('#username').value,
             password: document.querySelector('#password').value
         })
             .then((res) => {
-                console.log(res)
+                // console.log(res)
                 if (res.data.code !== 1) {
                     alert(res.data);
                     // console.log(res.data)
@@ -53,11 +56,11 @@ export default class regist extends Component {
                     </div>
                     <div className='inputDiv'>
                         <i className='lock iconfont'>&#xe639;</i>
-                        <input type="text" id='password' placeholder='请输入密码'/>
+                        <input type="password" id='password' placeholder='请输入密码'/>
                     </div>
                     <div className='inputDiv'>
                         <i className='lock iconfont'>&#xe690;</i>
-                        <input type="text" id='passwordagain' placeholder='请再次输入密码'/>
+                        <input type="password" id='passwordagain' placeholder='请再次输入密码'/>
                     </div>
                     <button onClick={() => this.regist()}>立即注册</button>
                 </div>
