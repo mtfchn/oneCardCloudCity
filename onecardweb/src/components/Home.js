@@ -7,14 +7,20 @@ import '../css/home.css'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import { Carousel } from 'antd'; //引入antd
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    NavLink,
+    Switch,
+    Redirect
+} from 'react-router-dom'
 
 class HomeUI extends React.Component {
 	
 	componentDidMount() {
 		this.props.getData();
-		if(window.swiperFun){
-			window.swiperFun(); 
-		}
+		
 	}
 	render() {
 		var props = this.props
@@ -53,18 +59,22 @@ class HomeUI extends React.Component {
 				{
 					props.product.map((item,index)=>{
 						return(
-							<dl key={item._id}>
-								<dt>
-									<img src={item.img}/>
-								</dt>
-								<dd>
-									<h3>{item.name}</h3>
-									<p>
-										<i className="iconfont">&#xe68a;</i>{item.price}
-										<span><i className="iconfont">&#xe68a;</i>{item.oldPrice}</span>
-									</p>
-								</dd>
-							</dl>
+							
+								<dl key={item._id}>
+									<Link to={"/detail/" + item._id}>
+										<dt>
+											<img src={item.img}/>
+										</dt>
+										<dd>
+											<h3>{item.name}</h3>
+											<p>
+												<i className="iconfont">&#xe68a;</i>{item.price}
+												<span><i className="iconfont">&#xe68a;</i>{item.oldPrice}</span>
+											</p>
+										</dd>
+									</Link>
+								</dl>
+							
 						)
 						
 					})
@@ -84,7 +94,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-	//业务
 	return {
 
 		getData: function() {
@@ -101,6 +110,19 @@ const mapDispatchToProps = (dispatch) => {
 		}
 	}
 }
+
+//const mapDispatchToProps = {
+//	getData:()=>{
+//				return 	axios.get('/users/getdata')
+//				.then(function(res) {
+//					console.log(res)
+////					dispatch({
+////						type: "PRODUCT",
+////						payload: res.data.goodlist
+////					})
+//				})
+//	}
+//}
 
 const Home = connect(mapStateToProps, mapDispatchToProps)(HomeUI);
 

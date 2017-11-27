@@ -7,6 +7,7 @@ import Classify from './components/Classify'
 import Find from './components/Find'
 import Cart from './components/Cart'
 import My from './components/My'
+import Detail from './components/Detail'
 import {
     BrowserRouter as Router,
     Route,
@@ -37,6 +38,7 @@ const App = () => (
                 <Route path="/find" component={Find}/>
                 <Route path="/classify" component={Classify}/>
                 <Route path="/my" component={My}/>
+                <Route path="/detail/:productid" component={Detail}/>               
             </Switch>
         </div>
     </Router>
