@@ -2,17 +2,20 @@
 import React from 'react';
 import '../css/public.css'
 import {connect} from 'react-redux'
+import axios from 'axios'
 
-
-
-const ClassifyUI = (props)=>{
-	return(
-		<div className="Classify">
-			
-	    
-		</div>	
-	)
-		
+class ClassifyUI extends React.Component{
+	componentDidMount(){
+		this.props.getClassify()
+	}
+	render(){
+		var props = this.props
+		return(
+			<div className="Classify">
+				
+			</div>
+		)			
+	}
 }
 
 const mapStateToProps = (state)=>{
@@ -23,7 +26,17 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispatch)=>{
 	return{
-		
+		getClassify() {
+            axios.get('/yiwu/category/querydouble/v2?parentId=10000')
+                .then(function (res) {
+                   console.log(res)
+	                dispatch({
+	                    type: "GET_TIME",
+	                    payload: res.result
+	                })
+                })
+
+        },
 	}
 }
 

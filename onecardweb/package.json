@@ -27,6 +27,14 @@
         "^/users": "/users"
       },
       "ws": true
+    },
+    "/yiwu": {
+      "target": "http://m.9yiwu.com",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/yiwu": "/yiwu"
+      },
+      "ws": true
     }
   }
 }
