@@ -37,11 +37,11 @@
 .Cart .Cart_info {
   width: 100%;
   height: 4rem;
-  line-height: 4rem;
   border-bottom: 0.1rem solid #EEEEEE;
 }
 .Cart .Cart_info h2 {
   font-size: 2rem;
+  line-height: 4rem;
   color: red;
   padding-left: 2rem;
 }
@@ -50,6 +50,24 @@
   font-size: 1.4rem;
   text-decoration: line-through;
   color: #CCCCCC;
+}
+.Cart .Cart_info .Cart_brand {
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+  font-size: 1.6rem;
+  padding-left: 2rem;
+  border-bottom: 0.1rem solid #EEEEEE;
+}
+.Cart .Cart_info .Cart_contest {
+  width: 100%;
+  font-size: 1.6rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  line-height: 2rem;
+  border-bottom: 0.1rem solid #EEEEEE;
 }
 
 /*# sourceMappingURL=detail.css.map */

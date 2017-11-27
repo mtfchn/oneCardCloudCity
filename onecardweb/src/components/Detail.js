@@ -32,6 +32,9 @@ class DetailUI extends React.Component{
 										<i className="iconfont">&#xe68a;</i>{item.price}
 										<span><i className="iconfont">&#xe68a;</i>{item.oldPrice}</span>
 									</h2>
+									<p className="Cart_brand">品牌:&nbsp;&nbsp;{item.brand}</p>
+									<p className="Cart_brand">产地:&nbsp;&nbsp;{item.origin}</p>
+									<p className="Cart_contest">详情:&nbsp;&nbsp;{item.contest}</p>
 								</div>
 							</div>
 						)
