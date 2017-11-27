@@ -1,15 +1,16 @@
 //该组件是购物车
-import React from 'react';
+import React, {Component} from 'react';
 import '../css/public.css'
 import {connect} from 'react-redux'
 
-const CartUI = (props)=>{
-	return(
-		<div className="Cart">
-			{'cart购物车组件'}
-		</div>	
-	)
-		
+class CartUI extends Component {
+	render(){
+		return (
+			<div id='cart'>
+				购物车！！！
+			</div>
+		)
+	}
 }
 
 const mapStateToProps = (state)=>{
