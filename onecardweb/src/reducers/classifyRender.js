@@ -2,11 +2,7 @@
 export default function(state=[],action){
 	// console.log(action.payload)
 	switch(action.type){
-		case "GET_TIME":
-			var newState = [...state]
-			newState.push(action.payload)
-			return newState
-		case "GET_QINGSHE":
+		case "GET_List":
 			var newState = [...state]
 			newState.push(action.payload)
 			return newState

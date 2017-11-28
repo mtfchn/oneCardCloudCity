@@ -19,7 +19,7 @@ import {
 class HomeUI extends Component {
 	
 	componentDidMount() {
-		this.props.getData();
+		this.props.getData();//获取首页的信息的ajax函数调用
 		
 	}
 	render() {
@@ -27,7 +27,7 @@ class HomeUI extends Component {
 		// console.log(props)
 		return(
 			<div className="Home">
-			<div className="Home_header">
+			<div className="Home_header">{/*首页头部*/}
 				<div className='header_l'>大连<i className="iconfont">&#xe61b;</i></div>
 				<div className='header_c'>
 					<div className="header_c_box">
@@ -38,7 +38,7 @@ class HomeUI extends Component {
 				<div className='header_r'><i className="iconfont">&#xe642;</i><i className="iconfont">&#xe645;</i></div>
 			</div>
 
-			<div className="Home_swiper">				
+			<div className="Home_swiper">	{/*首页轮播图*/}		
 				<Carousel autoplay>
 				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/00013802/17/11/16/4f9fe07a-7129-4760-b265-d52340b429d420171116175021.jpg"/></div>
 				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/17/11/28/8168d316-1bf1-460d-98af-81ef44e0ebc020171128094607.jpg"/></div>
@@ -47,7 +47,7 @@ class HomeUI extends Component {
 				</Carousel>
 			</div>
 			
-			<div className="Home_list">
+			<div className="Home_list">{/*首页列表*/}	
 				<ul>
 					<li>
 						<h3><i className="iconfont">&#xe690;</i></h3>
@@ -84,7 +84,7 @@ class HomeUI extends Component {
 				</ul>
 			</div>
 			
-			<div className="Home_product">	
+			<div className="Home_product">	{/*首页商品信息*/}	
 				<div className="product_title">
 					<i className="iconfont">&#xe64d;</i>&nbsp;推荐商品
 					<span>更多<i className="iconfont">&#xe686;</i></span>
@@ -128,7 +128,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-
+//获得首页商品信息
 		getData: function() {
 
 			axios.get('/users/getdata')
@@ -144,18 +144,6 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-//const mapDispatchToProps = {
-//	getData:()=>{
-//				return 	axios.get('/users/getdata')
-//				.then(function(res) {
-//					console.log(res)
-////					dispatch({
-////						type: "PRODUCT",
-////						payload: res.data.goodlist
-////					})
-//				})
-//	}
-//}
 
 const Home = connect(mapStateToProps, mapDispatchToProps)(HomeUI);
 

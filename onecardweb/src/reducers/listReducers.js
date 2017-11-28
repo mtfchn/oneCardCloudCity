@@ -1,10 +1,9 @@
-//从reducers/index.js中拆分出的list修改数据函数
+//从reducers/index.js中拆分出的分类页获得详细信息数据函数
 export default function(state=[],action){
-	// console.log('LR::run')
 	switch(action.type){
-		case "ADD_TODO":
-			var newState = [...state]
-			newState.push(action.payload)
+		case "GET_List_DATA":
+			var newState = []
+			newState=action.payload
 			return newState
 		default:
 			return state
