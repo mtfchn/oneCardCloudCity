@@ -90,7 +90,7 @@ const mapDispatchToProps = (dispatch)=>{
 		getTime() {
             axios.get('/yiwu/category/querydouble/v2?parentId=10000')
                 .then(function (res) {
-                   console.log(res.data.result['0'].categoryInfos)
+//                 console.log(res.data.result['0'].categoryInfos)
 	                dispatch({
 	                    type: "GET_TIME",
 	                    payload: res.data.result['0'].categoryInfos
@@ -101,11 +101,22 @@ const mapDispatchToProps = (dispatch)=>{
         getShechi() {
             axios.get('/yiwu/category/querydouble/v2?parentId=70000')
                 .then(function (res) {
-                   console.log(res.data.result['0'].categoryInfos)
+//                 console.log(res.data.result['0'].categoryInfos)
 	                dispatch({
 	                    type: "GET_QINGSHE",
 	                    payload: res.data.result['0'].categoryInfos
 	                })
+                })
+
+        },
+        getClothes() {
+            axios.get('/yiwu/category/querydouble/v2?parentId=150000')
+                .then(function (res) {
+                   console.log(res.data.result)
+//	                dispatch({
+//	                    type: "GET_QINGSHE",
+//	                    payload: res.data.result['0'].categoryInfos
+//	                })
                 })
 
         },
