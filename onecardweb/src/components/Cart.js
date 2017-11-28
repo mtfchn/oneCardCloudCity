@@ -22,7 +22,7 @@ class CartUI extends Component {
         this.delete = this.delete.bind()
     }
 
-    delete (id){
+    delete(id) {
         var history = createBrowserHistory({
             basename: '', // 基链接
             forceRefresh: true, // 是否强制刷新整个页面
@@ -144,7 +144,8 @@ class CartUI extends Component {
                                             </div>
                                             <div className="edit">
                                                 <span className="pirce">￥<span>{item.price}</span></span>
-                                                <span className="editclick editButton delete" onClick={()=>this.delete(item._id)}>删除</span>
+                                                <span className="editclick editButton delete"
+                                                      onClick={() => this.delete(item._id)}>删除</span>
                                             </div>
                                         </div>
                                     </div>
@@ -158,7 +159,36 @@ class CartUI extends Component {
                             <span className="quanxuan">全选</span>
                             <div className="allmoney">合计:￥<span className="allSpan">0</span></div>
                         </div>
-                        <div className="payAll">去结算(<span>0</span>)</div>
+                        <div className="payAll" onClick={() => {
+                            var history = createBrowserHistory({
+                                basename: '', // 基链接
+                                forceRefresh: true, // 是否强制刷新整个页面
+                                keyLength: 6, // location.key的长度
+                                getUserConfirmation: (message, callback) => callback(window.confirm(message)) // 跳转拦截函数
+                            })
+                            var checkpay = document.querySelectorAll('.checkOne')
+                            for (var i in checkpay) {
+                                var payThat = [];
+                                if (checkpay[i].checked === true) {
+                                    // console.log('pay' + i)
+                                    var List = [...this.props.commodities]//深拷贝数组
+                                    payThat = List.splice(i, 1)
+                                    // console.log(payThat['0']._id)
+                                    axios.post('/users/pay', {id: payThat['0']._id, flag: 1})
+                                        .then((res) => {
+                                            console.log(res)
+                                            if (res.data.code === 100) {
+                                                alert('支付失败')
+                                                return
+                                            }
+
+                                        })
+                                }
+                            }
+                            history.push('/cart')
+                            alert('支付成功')
+                        }}>去结算(<span>0</span>)
+                        </div>
                     </div>
                 </div>
             )
