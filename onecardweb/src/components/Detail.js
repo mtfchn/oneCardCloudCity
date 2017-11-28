@@ -21,10 +21,11 @@ class DetailUI extends Component {
     }
     addCart(name, img, price, oldPrice, username) {
         console.log(username)
-        if(username.length === 0){
+        if(username.length === 0){//判定是否登录
             alert('您还没有登录')
             return
         }
+        //添加购物车，将需要的值传参
         axios.post('/users/addCart', {
             name: name,
             img: img,
@@ -43,8 +44,9 @@ class DetailUI extends Component {
                 alert('成功将商品加入到购物车')
             })
     }
+    //点击立即购买的时候传参
     buyNow(name, img, price, oldPrice, username){
-        if(username.length === 0){
+        if(username.length === 0){//判定是否登录
             alert('您还没有登录')
             return
         }
@@ -58,7 +60,6 @@ class DetailUI extends Component {
             username: username
         })
             .then((res) => {
-                // console.log(res)
                 if(res.data.code !== 1){
                     alert(res.data.message);
                     return;
@@ -67,14 +68,12 @@ class DetailUI extends Component {
             })
     }
     componentDidMount() {
-        // console.log(this.props.match.params.productid)
         this.props.getDetail(this.props.match.params.productid)//调用getDetail函数
         this.props.getName()
     }
 
     render() {
         var props = this.props
-        // console.log(props)
         return (
             <div className="Cart">
                 {
@@ -121,7 +120,6 @@ class DetailUI extends Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state)
     return {
         productdetail: state.product,
         username: state.cookiename
@@ -143,6 +141,7 @@ const mapDispatchToProps = (dispatch) => {
                 })
 
         },
+        //获取username
         getName: function () {
             function getCookie(name) {
                 // var cookie = document.cookie;
