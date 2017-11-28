@@ -110,9 +110,6 @@ const mapDispatchToProps = (dispatch) => {
             }
             axios.post('/users/judgePay', {username: getCookie('user')})
                 .then((res) => {
-                    // console.log('start')
-                    // console.log(res)
-                    // console.log('end')
                     dispatch({
                         type: 'FINDORDER',
                         payload: res.data.goodlist
