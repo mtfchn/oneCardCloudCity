@@ -1,4 +1,4 @@
-//从reducers/index.js中拆分出的classfy修改数据函数
+//从reducers/index.js中拆分出的classify获取列表信息数据函数
 export default function(state=[],action){
 	// console.log(action.payload)
 	switch(action.type){

@@ -19,15 +19,12 @@ const App = () => (
 
     <Router>
         <div>
-            <ul id='footer'>
+            <ul id='footer'>//底部组件
                 <li><NavLink activeClassName="autocolor" to="/home"><p><i className="iconfont">&#xe6bc;</i></p>首页</NavLink></li>
                 <li><NavLink activeClassName="autocolor" to="/classify"><p><i className="iconfont">&#xe603;</i></p>分类</NavLink></li>
                 <li><NavLink activeClassName="autocolor" to="/cart"><p><i className="iconfont">&#xf0148;</i></p>购物车</NavLink></li>
                 <li><NavLink activeClassName="autocolor" to="/my"><p><i className="iconfont">&#xe612;</i></p>我的</NavLink></li>
             </ul>
-
-
-
 
             <Switch>
                 <Redirect exact from='/' to='/home'/>

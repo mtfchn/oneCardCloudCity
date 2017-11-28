@@ -1,4 +1,4 @@
-//从reducers/index.js中拆分出的list修改数据函数
+//从reducers/index.js中拆分出的存储首页获取商品信息函数
 export default function (state = [], action) {
     // console.log('PR::run')
     // var starts = state;
