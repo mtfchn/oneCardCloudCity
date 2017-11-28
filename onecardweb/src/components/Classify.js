@@ -4,6 +4,7 @@ import '../css/public.css'
 import '../css/classify.css'
 import {connect} from 'react-redux'
 import axios from 'axios'
+import { Spin } from 'antd';
 import {
     // BrowserRouter as Router,
     // Route,
@@ -27,6 +28,7 @@ class ClassifyUI extends React.Component{
 //		console.log(item2)
 		var item3 = (props.list)?(props.list):[]//对列表对应当详细信息进行非空判断
 //		console.log(item3)
+		
 		return(
 			<div className="Classify">			
 				<div className="Classify_header">
