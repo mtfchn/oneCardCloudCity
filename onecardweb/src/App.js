@@ -19,7 +19,7 @@ const App = () => (
 
     <Router>
         <div>
-            <ul id='footer'>//底部组件
+            <ul id='footer'>
                 <li><NavLink activeClassName="autocolor" to="/home"><p><i className="iconfont">&#xe6bc;</i></p>首页</NavLink></li>
                 <li><NavLink activeClassName="autocolor" to="/classify"><p><i className="iconfont">&#xe603;</i></p>分类</NavLink></li>
                 <li><NavLink activeClassName="autocolor" to="/cart"><p><i className="iconfont">&#xf0148;</i></p>购物车</NavLink></li>
