@@ -131,6 +131,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 
     return {
+    	//根据id获取商品的详情
         getDetail(productid) {
             axios.get(`/users/getdetail?id=${productid}`)
                 .then(function (res) {

@@ -46,6 +46,7 @@
   position: fixed;
   left: 0;
   top: 5rem;
+  overflow: auto;
 }
 .Classify .Classify_nav .navList {
   width: 100%;

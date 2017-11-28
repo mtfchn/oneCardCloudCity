@@ -26,9 +26,6 @@ const App = () => (
                 <li><NavLink activeClassName="autocolor" to="/my"><p><i className="iconfont">&#xe612;</i></p>我的</NavLink></li>
             </ul>
 
-
-
-
             <Switch>
                 <Redirect exact from='/' to='/home'/>
                 <Route exact path="/home" component={Home}/>
