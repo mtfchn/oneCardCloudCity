@@ -108,18 +108,7 @@ const mapDispatchToProps = (dispatch)=>{
 	                })
                 })
 
-        },
-        getClothes() {
-            axios.get('/yiwu/category/querydouble/v2?parentId=150000')
-                .then(function (res) {
-                   console.log(res.data.result)
-//	                dispatch({
-//	                    type: "GET_QINGSHE",
-//	                    payload: res.data.result['0'].categoryInfos
-//	                })
-                })
-
-        },
+        }
 	}
 }
 

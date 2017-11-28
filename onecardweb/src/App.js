@@ -3,7 +3,6 @@ import './App.css'
 import './css/public.css'//公共样式
 import Home from './components/Home'
 import Classify from './components/Classify'
-import Find from './components/Find'
 import Cart from './components/Cart'
 import My from './components/My'
 import Detail from './components/Detail'
@@ -23,7 +22,6 @@ const App = () => (
             <ul id='footer'>
                 <li><NavLink activeClassName="autocolor" to="/home"><p><i className="iconfont">&#xe6bc;</i></p>首页</NavLink></li>
                 <li><NavLink activeClassName="autocolor" to="/classify"><p><i className="iconfont">&#xe603;</i></p>分类</NavLink></li>
-                <li><NavLink activeClassName="autocolor" to="/find"><p><i className="iconfont">&#xe6f4;</i></p>发现</NavLink></li>
                 <li><NavLink activeClassName="autocolor" to="/cart"><p><i className="iconfont">&#xf0148;</i></p>购物车</NavLink></li>
                 <li><NavLink activeClassName="autocolor" to="/my"><p><i className="iconfont">&#xe612;</i></p>我的</NavLink></li>
             </ul>
@@ -35,7 +33,6 @@ const App = () => (
                 <Redirect exact from='/' to='/home'/>
                 <Route exact path="/home" component={Home}/>
                 <Route path="/cart" component={Cart}/>
-                <Route path="/find" component={Find}/>
                 <Route path="/classify" component={Classify}/>
                 <Route path="/my" component={My}/>
                 <Route path="/detail/:productid" component={Detail}/>               
