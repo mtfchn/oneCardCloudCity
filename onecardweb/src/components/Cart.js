@@ -143,7 +143,7 @@ class CartUI extends Component {
                                                 <span className="disblockId" style={{display: 'none'}}>{item._id}</span>
                                             </div>
                                             <div className="edit">
-                                                <span className="pirce">￥<span>{item.price}</span></span>
+                                                <span className="pirce">单价：￥<span>{item.price}</span></span>
                                                 <span className="editclick editButton delete"
                                                       onClick={() => this.delete(item._id)}>删除</span>
                                             </div>

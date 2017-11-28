@@ -7,6 +7,21 @@
     font-size: 2rem;
     color: #fff;
     text-align: center;
+    .goback{
+      width:10%;
+      color:#fff;
+      display: inline-block;
+      font-size: 2rem
+    }
+    .myorder{
+      width: 80%;
+      display: inline-block;
+      text-align: center;
+    }
+    .find{
+      width: 10%;
+      display: inline-block;
+    }
   }
   .cannotLogin {
     h1 {
