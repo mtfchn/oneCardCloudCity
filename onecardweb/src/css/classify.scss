@@ -1,0 +1,73 @@
+.Classify{
+    width: 100%;
+    .Classify_header{
+        width: 100%;
+        height: 5rem;
+        background: #c91919;
+        .Classify_header_l{
+            width: 20%;
+            height: 5rem;
+            line-height: 5rem;
+            font-size: 2rem;
+            padding-left: 10px;
+            float: left;            
+            .iconfont{
+                color: #FFFFFF;
+            }
+        }
+        .Classify_header_c{
+            width: 60%;
+            height: 5rem;
+            line-height: 5rem;
+            font-size: 2rem;
+            text-align: center;
+            float: left;
+            color: #FFFFFF;
+        }
+        .Classify_header_r{
+            width: 20%;
+            height: 5rem;
+            line-height: 5rem;
+            font-size: 2rem;
+            text-align: right;
+            padding-right: 10px;
+            float: left;
+            color: #FFFFFF;
+        }
+    }
+    .Classify_nav{
+        width: 25%;
+        font-size: 1.6rem;
+        float: left;
+        .navList{
+            width: 100%;
+            li{
+                height: 4rem;
+                line-height: 4rem;
+                text-align: center;
+                border-bottom: 0.1rem solid #DDDDDD;
+                
+            }
+        }
+    }
+    .Classify_list{
+        width: 75%;
+        float: left;
+        dl{
+            width: 33%;
+            float: left;
+            dt{
+                width: 100%;
+                img{
+                    width: 100%;
+                }
+            }
+            dd{
+                width: 100%;
+                height: 3rem;
+                line-height: 3rem;
+                text-align: center;
+            }
+        }
+    }
+}
