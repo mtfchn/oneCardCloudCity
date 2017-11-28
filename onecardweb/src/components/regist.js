@@ -12,6 +12,7 @@ export default class regist extends Component {
     }
 
     regist() {
+        //注册——————————————————————————————————————————————————————————
         var history = createBrowserHistory({
             basename: '', // 基链接
             forceRefresh: true, // 是否强制刷新整个页面
@@ -35,15 +36,12 @@ export default class regist extends Component {
             password: document.querySelector('#password').value
         })
             .then((res) => {
-                // console.log(res)
                 if (res.data.code !== 1) {
                     alert(res.data);
-                    // console.log(res.data)
                     return;
                 }
-                history.push('/my/login')
+                history.push('/my/login')//注册成功跳转到登录页
                 alert('注册成功')
-                // console.log('注册成功')
             })
 
     }

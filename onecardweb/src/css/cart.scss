@@ -1,4 +1,5 @@
 #cart {
+  overflow: auto;
   .header {
     width: 100%;
     height: 5rem;
@@ -7,6 +8,10 @@
     font-size: 2rem;
     color: #fff;
     text-align: center;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 10;
     .goback{
       width:10%;
       color:#fff;
@@ -42,6 +47,7 @@
     }
   }
   .alreadyLogin {
+    margin-top: 5rem;
     .storeMessage{
       padding: 0 .5rem;
       height: 3rem;
@@ -158,6 +164,7 @@
       .left {
         width: 50%;
         display: inline-block;
+        background: #fff;
         line-height: 5rem;
         .checkAll {
           margin-left: 1rem;

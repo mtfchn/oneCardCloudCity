@@ -20,6 +20,7 @@ class MyhomeUI extends React.Component {
 
     render() {
         var cartDiv = ''
+        // console.log(this.props.product)
         if (this.props.product === 100) {
             cartDiv = (
                 <div className='cannotLogin'>
@@ -77,12 +78,14 @@ class MyhomeUI extends React.Component {
 const mapStateToProps = (state) => {
     // console.log(state)
     return {
-        orderList: state.order
+        orderList: state.order,
+        product :state.cookie
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        //判定登录状态
         getData: function () {
             axios.get('/users/findCookie')
                 .then((res) => {
@@ -92,6 +95,7 @@ const mapDispatchToProps = (dispatch) => {
                     })
                 })
         },
+        //在表中寻找flag为1的数组
         getOrder: function () {
             function getCookie(name) {
                 var arr = document.cookie.split('; ');
@@ -104,7 +108,7 @@ const mapDispatchToProps = (dispatch) => {
                 }
                 return null;
             }
-
+            //username
             if (getCookie('user') === null) {
                 return
             }

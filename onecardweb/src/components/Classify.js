@@ -57,7 +57,7 @@ class ClassifyUI extends React.Component{
 							item3.map((item,index)=>{
 								return(
 									<dl key={item.categoryId}>
-										<dt><img src={item.picture}/></dt>
+										<dt><img src={item.picture} alt='img'/></dt>
 										<dd>{item.categoryName}</dd>
 									</dl>
 								)

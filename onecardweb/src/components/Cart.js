@@ -30,6 +30,7 @@ class CartUI extends Component {
             getUserConfirmation: (message, callback) => callback(window.confirm(message)) // 跳转拦截函数
         })
         //删除====================================================
+
         axios.post('/users/delete', {id: id})
             .then((res) => {
                 history.push('/cart')
@@ -57,17 +58,14 @@ class CartUI extends Component {
         document.querySelector('.pay .allmoney .allSpan').innerHTML = money;
         document.querySelector('.pay .payAll span').innerHTML = num;
         if (checks.length === checkeds.length) {
-            document.querySelector('.checkAll').checked = true
+            document.querySelector('.checkAll').checked = true //小的input全部选中时全选框选中
         } else {
             document.querySelector('.checkAll').checked = false
         }
-        // console.log(checks.length)
-        // console.log(checkeds.length)
     }
 
     changeAll() {
         //全选判定单个选择-----------------------------------------------------
-        // console.log('changeAll')
         var checkAll = document.querySelector('.checkAll')
         var checks = document.querySelectorAll('.checkOne')
         var money = 0;
@@ -92,7 +90,6 @@ class CartUI extends Component {
         }
         document.querySelector('.pay .allmoney .allSpan').innerHTML = money;
         document.querySelector('.pay .payAll span').innerHTML = num;
-
     }
 
     componentDidMount() {
@@ -170,15 +167,13 @@ class CartUI extends Component {
                             for (var i in checkpay) {
                                 var payThat = [];
                                 if (checkpay[i].checked === true) {
-                                    // console.log('pay' + i)
                                     var List = [...this.props.commodities]//深拷贝数组
                                     payThat = List.splice(i, 1)
-                                    // console.log(payThat['0']._id)
                                     axios.post('/users/pay', {id: payThat['0']._id, flag: 1})
                                         .then((res) => {
                                             console.log(res)
                                             if (res.data.code === 100) {
-                                                alert('支付失败')
+                                                alert('支付失败')//支付失败返回code为100
                                                 return
                                             }
 
@@ -203,7 +198,6 @@ class CartUI extends Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state.commodity)
     return {
         product: state.cookie,
         commodities: state.commodity
@@ -212,6 +206,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        //判定是否登录findcookie
         getData: function () {
             axios.get('/users/findCookie')
                 .then((res) => {
@@ -221,6 +216,7 @@ const mapDispatchToProps = (dispatch) => {
                     })
                 })
         },
+        //寻找username
         getCart: function () {
             function getCookie(name) {
                 var arr = document.cookie.split('; ');
@@ -239,9 +235,6 @@ const mapDispatchToProps = (dispatch) => {
             }
             axios.post('/users/judgeCart', {username: getCookie('user')})
                 .then((res) => {
-                    // console.log('start')
-                    // console.log(res)
-                    // console.log('end')
                     dispatch({
                         type: 'FINDCOMMODITY',
                         payload: res.data.goodlist

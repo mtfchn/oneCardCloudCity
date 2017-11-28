@@ -1,3 +1,6 @@
+#cart {
+  overflow: auto;
+}
 #cart .header {
   width: 100%;
   height: 5rem;
@@ -6,6 +9,10 @@
   font-size: 2rem;
   color: #fff;
   text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 #cart .header .goback {
   width: 10%;
@@ -37,6 +44,9 @@
   font-size: 1.8rem;
   font-weight: 600;
   color: #c91919;
+}
+#cart .alreadyLogin {
+  margin-top: 5rem;
 }
 #cart .alreadyLogin .storeMessage {
   padding: 0 .5rem;
@@ -155,6 +165,7 @@
 #cart .alreadyLogin .pay .left {
   width: 50%;
   display: inline-block;
+  background: #fff;
   line-height: 5rem;
 }
 #cart .alreadyLogin .pay .left .checkAll {

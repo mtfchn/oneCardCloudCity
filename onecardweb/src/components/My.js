@@ -18,7 +18,7 @@ const MyUI = () => {
             <Router>
                 <div>
 	                <Switch>
-	                    <Redirect exact from={`/my`} to={`/my/myhome`}/>
+	                    <Redirect exact from={`/my`} to={`/my/myhome`}/>{/*重定向到myhome页*/}
 	                    <Route path={`/my/myhome`} component={Myhome}/>
 	                    <Route path={`/my/regist`} component={Regist}/>
                         <Route path={`/my/login`} component={Login}/>
