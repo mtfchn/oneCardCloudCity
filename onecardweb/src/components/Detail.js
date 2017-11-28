@@ -1,4 +1,4 @@
-//该组件是购物车
+//该组件是详情页
 import React, {Component} from 'react';
 import '../css/public.css'
 import '../css/detail.css'
