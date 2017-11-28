@@ -7,6 +7,21 @@
     font-size: 2rem;
     color: #fff;
     text-align: center;
+    .goback{
+      width:10%;
+      color:#fff;
+      display: inline-block;
+      font-size: 2rem
+    }
+    .myorder{
+      width: 80%;
+      display: inline-block;
+      text-align: center;
+    }
+    .find{
+      width: 10%;
+      display: inline-block;
+    }
   }
   .cannotLogin {
     h1 {
@@ -27,6 +42,15 @@
     }
   }
   .alreadyLogin {
+    .storeMessage{
+      padding: 0 .5rem;
+      height: 3rem;
+      color: #999;
+      font-size: 1.3rem;
+      background: #fff;
+      line-height: 3rem;
+      border-bottom: 1px #eee solid;
+    }
     .commodity {
       border-bottom: 1px #eee solid;
       background: #fff;
@@ -97,6 +121,28 @@
             font-size: 1.4rem;
             .pirce {
               color: #fe4070;
+            }
+          }
+          .editC{
+            position: relative;
+            button{
+              display: inline-block;
+              width: 2rem;
+              text-align: center;
+              line-height: 2rem;
+              height: 2rem;
+            }
+            div{
+              display: inline-block;
+              font-size: 16px;
+            }
+            .lessSpan{
+              width: 2rem;
+              height: 2rem;
+              position: absolute;
+              left: 0;
+              top: 0;
+              background: rgba(0,0,0,.5);
             }
           }
         }

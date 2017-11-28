@@ -96,7 +96,7 @@ class HomeUI extends Component {
 								<dl key={item._id}>
 									<Link to={"/detail/" + item._id}>
 										<dt>
-											<img src={item.img} alt='img'/>
+											<img src={item.img} alt='img+++++++++++++'/>
 										</dt>
 										<dd>
 											<h3>{item.name}</h3>

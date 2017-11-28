@@ -27,6 +27,8 @@ const App = () => (
             </ul>
 
 
+
+
             <Switch>
                 <Redirect exact from='/' to='/home'/>
                 <Route exact path="/home" component={Home}/>

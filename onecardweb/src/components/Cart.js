@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import '../css/cart.css'
 import axios from 'axios'
 import {connect} from 'react-redux'
+import {createBrowserHistory} from 'history'
 import {
     // BrowserRouter as Router,
     // Route,
@@ -18,17 +19,44 @@ class CartUI extends Component {
         super()
         this.changeOne = this.changeOne.bind()
         this.changeAll = this.changeAll.bind()
+        this.delete = this.delete.bind()
     }
-    changeOne(){//单个选择时判定全选
+
+    delete(id) {
+        var history = createBrowserHistory({
+            basename: '', // 基链接
+            forceRefresh: true, // 是否强制刷新整个页面
+            keyLength: 6, // location.key的长度
+            getUserConfirmation: (message, callback) => callback(window.confirm(message)) // 跳转拦截函数
+        })
+        //删除====================================================
+        axios.post('/users/delete', {id: id})
+            .then((res) => {
+                history.push('/cart')
+                alert('成功删除商品')
+            })
+    }
+
+    changeOne() {
+        //单个选择时判定全选-----------------------------------------------------
         // console.log('changeOne')
         var checks = document.querySelectorAll('.checkOne')
         var checkeds = []
-        for(var i in checks){
-            if(checks[i].checked === true){
+        var money = 0;
+        var num = 0;//计算数量
+        for (var i in checks) {
+            if (checks[i].checked === true) {
                 checkeds.push(checks[i])
+                //计算总价
+                var price = checks[i].parentNode.parentNode.querySelector('.edit .pirce span').innerHTML;
+                var number = checks[i].parentNode.parentNode.querySelector('.nowC .capacity span').innerHTML;
+                money += price * number
+                num++
             }
         }
-        if(checks.length === checkeds.length){
+        document.querySelector('.pay .allmoney .allSpan').innerHTML = money;
+        document.querySelector('.pay .payAll span').innerHTML = num;
+        if (checks.length === checkeds.length) {
             document.querySelector('.checkAll').checked = true
         } else {
             document.querySelector('.checkAll').checked = false
@@ -36,25 +64,37 @@ class CartUI extends Component {
         // console.log(checks.length)
         // console.log(checkeds.length)
     }
-    changeAll(){//全选判定单个选择
+
+    changeAll() {
+        //全选判定单个选择-----------------------------------------------------
         // console.log('changeAll')
         var checkAll = document.querySelector('.checkAll')
         var checks = document.querySelectorAll('.checkOne')
-        if(checkAll.checked === true){
-            for(var i in checks){
-                if(checks[i].checked === false){
+        var money = 0;
+        var num = 0;//计算数量
+        if (checkAll.checked === true) {
+            for (var i in checks) {
+                if (checks[i].checked === false) {
                     checks[i].checked = true
+                    //计算总价
+                    var price = checks[i].parentNode.parentNode.querySelector('.edit .pirce span').innerHTML;
+                    var number = checks[i].parentNode.parentNode.querySelector('.nowC .capacity span').innerHTML;
+                    money += price * number
+                    num++
                 }
             }
         } else {
-            for(var i in checks){
-                if(checks[i].checked === true){
+            for (i in checks) {
+                if (checks[i].checked === true) {
                     checks[i].checked = false
                 }
             }
         }
+        document.querySelector('.pay .allmoney .allSpan').innerHTML = money;
+        document.querySelector('.pay .payAll span').innerHTML = num;
 
     }
+
     componentDidMount() {
         this.props.getData();
         this.props.getCart();
@@ -74,13 +114,17 @@ class CartUI extends Component {
         } else {
             cartDiv = (
                 <div className='alreadyLogin'>
+                    <div className="storeMessage">
+                        商品数量有限，请尽快结算
+                    </div>
                     {
                         this.props.commodities.map((item, index) => {
                             return (
                                 <div key={item._id} className='commodity'>
                                     <div className="itemThings">
                                         <div className="leftInput l">
-                                            <input type="checkbox" className="checkOne" onClick={() => this.changeOne()}/>
+                                            <input type="checkbox" className="checkOne"
+                                                   onClick={() => this.changeOne(index)}/>
                                         </div>
                                         <div className="contentImg l">
                                             <img src={item.img} alt='img'/>
@@ -90,19 +134,18 @@ class CartUI extends Component {
                                             <div className="capacityAndNumber nowC">
                                                 <div className="capacity">×<span>{item.number}</span></div>
                                             </div>
-                                            {/*<div className="capacityAndNumber editC" >*/}
-                                            {/*<button className="less"> -</button>*/}
-                                            {/*<span className="lessSpan"></span>*/}
-                                            {/*<div className="editNumber"></div>*/}
-                                            {/*<button className="add"> +</button>*/}
-                                            {/*/!*<span className="disblockId" >22</span>*!/*/}
-                                            {/*/!*<span className="pirceThisAll" ></span>*!/*/}
-                                            {/*</div>*/}
+
+                                            <div className="capacityAndNumber editC" style={{display: 'none'}}>
+                                                <button className="less"> -</button>
+                                                <span className="lessSpan"></span>
+                                                <div className="editNumber"></div>
+                                                <button className="add"> +</button>
+                                                <span className="disblockId" style={{display: 'none'}}>{item._id}</span>
+                                            </div>
                                             <div className="edit">
-                                                <span className="pirce">￥<span>{item.price}</span></span>
-                                                <span className="editclick nowButton">编辑</span>
-                                                {/*<span className="editclick editButton finished" >完成</span>*/}
-                                                {/*<span className="editclick editButton delete" >删除</span>*/}
+                                                <span className="pirce">单价：￥<span>{item.price}</span></span>
+                                                <span className="editclick editButton delete"
+                                                      onClick={() => this.delete(item._id)}>删除</span>
                                             </div>
                                         </div>
                                     </div>
@@ -112,11 +155,40 @@ class CartUI extends Component {
                     }
                     <div className="pay">
                         <div className="left">
-                            <input type="checkbox" className="checkAll" onClick={()=>this.changeAll()}/>
+                            <input type="checkbox" className="checkAll" onClick={() => this.changeAll()}/>
                             <span className="quanxuan">全选</span>
-                            <div className="allmoney">合计:<span className="allSpan">￥0</span></div>
+                            <div className="allmoney">合计:￥<span className="allSpan">0</span></div>
                         </div>
-                        <div className="payAll">去结算(<span>0</span>)</div>
+                        <div className="payAll" onClick={() => {
+                            var history = createBrowserHistory({
+                                basename: '', // 基链接
+                                forceRefresh: true, // 是否强制刷新整个页面
+                                keyLength: 6, // location.key的长度
+                                getUserConfirmation: (message, callback) => callback(window.confirm(message)) // 跳转拦截函数
+                            })
+                            var checkpay = document.querySelectorAll('.checkOne')
+                            for (var i in checkpay) {
+                                var payThat = [];
+                                if (checkpay[i].checked === true) {
+                                    // console.log('pay' + i)
+                                    var List = [...this.props.commodities]//深拷贝数组
+                                    payThat = List.splice(i, 1)
+                                    // console.log(payThat['0']._id)
+                                    axios.post('/users/pay', {id: payThat['0']._id, flag: 1})
+                                        .then((res) => {
+                                            console.log(res)
+                                            if (res.data.code === 100) {
+                                                alert('支付失败')
+                                                return
+                                            }
+
+                                        })
+                                }
+                            }
+                            history.push('/cart')
+                            alert('支付成功')
+                        }}>去结算(<span>0</span>)
+                        </div>
                     </div>
                 </div>
             )
@@ -131,7 +203,7 @@ class CartUI extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.commodity)
+    // console.log(state.commodity)
     return {
         product: state.cookie,
         commodities: state.commodity
