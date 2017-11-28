@@ -40,15 +40,48 @@ class HomeUI extends Component {
 
 			<div className="Home_swiper">				
 				<Carousel autoplay>
-				    <div>1</div>
-				    <div>2</div>
-				    <div>3</div>
-				    <div>4</div>
+				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/00013802/17/11/16/4f9fe07a-7129-4760-b265-d52340b429d420171116175021.jpg"/></div>
+				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/17/11/28/8168d316-1bf1-460d-98af-81ef44e0ebc020171128094607.jpg"/></div>
+				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/51206,51207/17/11/28/e0ee4d1a-8b26-4573-9619-c0c77c660b8520171128101516.jpg"/></div>
+				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/00011510/17/11/27/9e0bd5f4-8d62-44ae-a130-6fd838d93e4420171127095458.jpg"/></div>
 				</Carousel>
 			</div>
 			
 			<div className="Home_list">
-				list
+				<ul>
+					<li>
+						<h3><i className="iconfont">&#xe690;</i></h3>
+						<p>本地服务</p>
+					</li>
+					<li>
+						<h3><i className="iconfont">&#xe61f;</i></h3>
+						<p>积分商城</p>
+					</li>
+					<li>
+						<h3><i className="iconfont">&#xe612;</i></h3>
+						<p>附近商家</p>
+					</li>
+					<li>
+						<h3><i className="iconfont">&#xe6de;</i></h3>
+						<p>手机数码</p>
+					</li>
+					<li>
+						<h3><i className="iconfont">&#xe712;</i></h3>
+						<p>惠加油</p>
+					</li>
+					<li>
+						<h3><i className="iconfont">&#xe601;</i></h3>
+						<p>花费充值</p>
+					</li>
+					<li>
+						<h3><i className="iconfont">&#xe671;</i></h3>
+						<p>票务中心</p>
+					</li>
+					<li>
+						<h3><i className="iconfont">&#xe639;</i></h3>
+						<p>便民服务</p>
+					</li>
+				</ul>
 			</div>
 			
 			<div className="Home_product">	
