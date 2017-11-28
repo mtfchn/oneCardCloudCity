@@ -6,6 +6,10 @@ export default function(state=[],action){
 			var newState = [...state]
 			newState.push(action.payload)
 			return newState
+		case "GET_QINGSHE":
+			var newState = [...state]
+			newState.push(action.payload)
+			return newState
 		default:
 			return state
 	}
