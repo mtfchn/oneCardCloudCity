@@ -20,7 +20,7 @@ class DetailUI extends Component {
         this.buyNow = this.buyNow.bind(this)
     }
     addCart(name, img, price, oldPrice, username) {
-        console.log(username)
+        // console.log(username)
         if(username.length === 0){//判定是否登录
             alert('您还没有登录')
             return

@@ -40,10 +40,10 @@ class HomeUI extends Component {
 
 			<div className="Home_swiper">	{/*首页轮播图*/}		
 				<Carousel autoplay>
-				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/00013802/17/11/16/4f9fe07a-7129-4760-b265-d52340b429d420171116175021.jpg"/></div>
-				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/17/11/28/8168d316-1bf1-460d-98af-81ef44e0ebc020171128094607.jpg"/></div>
-				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/51206,51207/17/11/28/e0ee4d1a-8b26-4573-9619-c0c77c660b8520171128101516.jpg"/></div>
-				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/00011510/17/11/27/9e0bd5f4-8d62-44ae-a130-6fd838d93e4420171127095458.jpg"/></div>
+				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/00013802/17/11/16/4f9fe07a-7129-4760-b265-d52340b429d420171116175021.jpg" alt='img'/></div>
+				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/17/11/28/8168d316-1bf1-460d-98af-81ef44e0ebc020171128094607.jpg" alt='img'/></div>
+				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/51206,51207/17/11/28/e0ee4d1a-8b26-4573-9619-c0c77c660b8520171128101516.jpg" alt='img'/></div>
+				    <div><img src="http://ywproducts.oss-cn-shanghai.aliyuncs.com/ywproducts/00011510/17/11/27/9e0bd5f4-8d62-44ae-a130-6fd838d93e4420171127095458.jpg" alt='img'/></div>
 				</Carousel>
 			</div>
 			

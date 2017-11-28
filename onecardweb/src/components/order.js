@@ -20,6 +20,7 @@ class MyhomeUI extends React.Component {
 
     render() {
         var cartDiv = ''
+        // console.log(this.props.product)
         if (this.props.product === 100) {
             cartDiv = (
                 <div className='cannotLogin'>
@@ -77,7 +78,8 @@ class MyhomeUI extends React.Component {
 const mapStateToProps = (state) => {
     // console.log(state)
     return {
-        orderList: state.order
+        orderList: state.order,
+        product :state.cookie
     }
 }
 
