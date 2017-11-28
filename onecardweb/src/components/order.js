@@ -83,6 +83,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        //判定登录状态
         getData: function () {
             axios.get('/users/findCookie')
                 .then((res) => {
@@ -92,6 +93,7 @@ const mapDispatchToProps = (dispatch) => {
                     })
                 })
         },
+        //在表中寻找flag为1的数组
         getOrder: function () {
             function getCookie(name) {
                 var arr = document.cookie.split('; ');
@@ -104,7 +106,7 @@ const mapDispatchToProps = (dispatch) => {
                 }
                 return null;
             }
-
+            //username
             if (getCookie('user') === null) {
                 return
             }

@@ -15,8 +15,8 @@ import {
 
 class MyhomeUI extends React.Component {
     componentDidMount() {
-        this.props.getData();
-        this.props.getName();
+        this.props.getData();//刷新页面取cookie
+        this.props.getName();//刷新页面取username
         this.drop = this.drop.bind(this);
     }
 
@@ -28,6 +28,7 @@ class MyhomeUI extends React.Component {
             getUserConfirmation: (message, callback) => callback(window.confirm(message)) // 跳转拦截函数
         })
         axios.post('/users/quit')
+        //注销登录，清除cookie
             .then((res) => {
                 var now = new Date();
                 now.setDate(now.getDate() - 1);
@@ -44,15 +45,16 @@ class MyhomeUI extends React.Component {
                     document.cookie = str;
 
                 }
-                history.push('/my/myhome')
+
+                history.push('/my/myhome')//退出成功刷新页面
                 alert('退出成功')
             })
     }
 
     render() {
-        var list = '';
+        var list = '';//判定是否登录而产生不同页面，未登录返回code为100，登录返回的code为1
         if (this.props.product === 100) {
-             list = (
+            list = (
                 <div id='VipContent'>
                     <div className='header'>会员中心</div>
                     <div className='user'>
@@ -67,7 +69,7 @@ class MyhomeUI extends React.Component {
             )
 
         } else {
-             list = (
+            list = (
                 <div id='VipContent'>
                     <div className='header'>会员中心</div>
                     <div className='user'>
@@ -86,34 +88,30 @@ class MyhomeUI extends React.Component {
             <div>
                 {list}
             </div>
-
         )
-
     }
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state)
     return {
-        product: state.cookie,
-        cookieName: state.cookiename
+        product: state.cookie,//返回判定是否存在cookie的code
+        cookieName: state.cookiename//返回的username
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        //判定是否登录
         getData: function () {
             axios.get('/users/findCookie')
                 .then((res) => {
-                    // console.log('start')
-                    // console.log(res)
-                    // console.log('end')
                     dispatch({
                         type: 'FINDCOOKIE',
                         payload: res.data.code
                     })
                 })
         },
+        //登录后返回username
         getName: function () {
             function getCookie(name) {
                 // var cookie = document.cookie;
@@ -135,10 +133,6 @@ const mapDispatchToProps = (dispatch) => {
                 type: 'COOKIENAME',
                 payload: getCookie('user')
             })
-
-            // console.log('start')
-            // console.log(getCookie('user'))
-            // console.log('end')
         }
     }
 }

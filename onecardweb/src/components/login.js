@@ -18,21 +18,19 @@ export default class login extends Component {
             keyLength: 6, // location.key的长度
             getUserConfirmation: (message, callback) => callback(window.confirm(message)) // 跳转拦截函数
         })
+        //登录——————————————————————————————————————————————
         axios.post('/users/login', {
             username: document.querySelector('#username').value,
             password: document.querySelector('#password').value
         })
             .then((res) => {
-                // console.log(res)
                 if (res.data.code !== 1) {
                     alert(res.data.message);
-                    // console.log(res.data.message)
                     return;
                 }
                 document.cookie = 'user=' + document.querySelector('#username').value + ';path=/';
-                history.push('/my/myhome')
+                history.push('/my/myhome')//登录成功刷新界面
                 alert('登录成功')
-                // console.log('登录成功')
             })
     }
 
