@@ -17,10 +17,22 @@ import {
 } from 'react-router-dom'
 
 class HomeUI extends Component {
-	
+	constructor(){
+		super()
+		this.state={
+			place:'北京'
+		}
+		this.getCity=this.getCity.bind(this)
+	}
+	getCity(){
+		var mycity = window.remote_ip_info['city'];
+		this.setState({
+			place:mycity
+		})
+	}
 	componentDidMount() {
-		this.props.getData();//获取首页的信息的ajax函数调用
-		
+		this.props.getData();//获取首页的信息的ajax函数调用	
+		this.getCity()
 	}
 	render() {
 		var props = this.props
@@ -28,7 +40,7 @@ class HomeUI extends Component {
 		return(
 			<div className="Home">
 			<div className="Home_header">{/*首页头部*/}
-				<div className='header_l'>大连<i className="iconfont">&#xe61b;</i></div>
+				<div className='header_l'>{this.state.place}<i className="iconfont">&#xe61b;</i></div>
 				<div className='header_c'>
 					<div className="header_c_box">
 						<i className="iconfont">&#xe60b;</i>
