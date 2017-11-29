@@ -4,7 +4,6 @@ import '../css/public.css'
 import '../css/classify.css'
 import {connect} from 'react-redux'
 import axios from 'axios'
-import { Spin } from 'antd';
 import {
     // BrowserRouter as Router,
     // Route,
