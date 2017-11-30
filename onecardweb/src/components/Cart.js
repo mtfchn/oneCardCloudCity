@@ -17,9 +17,72 @@ class CartUI extends Component {
 
     constructor() {
         super()
-        this.changeOne = this.changeOne.bind()
-        this.changeAll = this.changeAll.bind()
-        this.delete = this.delete.bind()
+        this.changeOne = this.changeOne.bind(this)
+        this.changeAll = this.changeAll.bind(this)
+        this.delete = this.delete.bind(this)
+        this.edit = this.edit.bind(this)
+        this.less = this.less.bind(this)
+        this.add = this.add.bind(this)
+        this.finish = this.finish.bind(this)
+    }
+
+    finish(id, index) {
+        var history = createBrowserHistory({
+            basename: '', // 基链接
+            forceRefresh: true, // 是否强制刷新整个页面
+            keyLength: 6, // location.key的长度
+            getUserConfirmation: (message, callback) => callback(window.confirm(message)) // 跳转拦截函数
+        })
+        //点击完成，完成修改
+        var num = document.querySelector(`.commodity:nth-of-type(${index + 2}) .editC .editNumber`).innerHTML
+        axios.post('/users/updateNumber', {id: id, number: num})
+            .then((res) => {
+                history.push('/cart')
+                alert('完成修改')
+            })
+    }
+
+    less(index) {
+        //点击“-”减少数量，当数量到达1时遮罩层出现，无法再继续点击
+        var numbers = document.querySelector(`.commodity:nth-of-type(${index + 2}) .editC .editNumber`).innerHTML
+        numbers--
+        document.querySelector(`.commodity:nth-of-type(${index + 2}) .editC .editNumber`).innerHTML = numbers
+        if (numbers > 1) {
+            document.querySelector(`.commodity:nth-of-type(${index + 2}) .editC .lessSpan`).style.display = 'none'
+        } else {
+            document.querySelector(`.commodity:nth-of-type(${index + 2}) .editC .lessSpan`).style.display = 'block'
+        }
+    }
+
+    add(index) {
+        // console.log(document.querySelector(`.commodity:nth-of-type(${index + 2})`))
+        var numbers = document.querySelector(`.commodity:nth-of-type(${index + 2}) .editC .editNumber`).innerHTML
+        numbers++
+        document.querySelector(`.commodity:nth-of-type(${index + 2}) .editC .editNumber`).innerHTML = numbers
+        if (numbers > 1) {
+            document.querySelector(`.commodity:nth-of-type(${index + 2}) .editC .lessSpan`).style.display = 'none'
+        } else {
+            document.querySelector(`.commodity:nth-of-type(${index + 2}) .editC .lessSpan`).style.display = 'block'
+        }
+    }
+
+    edit(index) {
+        // console.log(index)
+        // console.log('pirce')
+        // console.log(document.querySelector(`.commodity:nth-of-type(${index + 2})`))
+        document.querySelector(`.commodity:nth-of-type(${index + 2}) .bianji`).style.display = 'none'
+        document.querySelector(`.commodity:nth-of-type(${index + 2}) .pirce`).style.display = 'none'
+        document.querySelector(`.commodity:nth-of-type(${index + 2}) .nowC`).style.display = 'none'
+        document.querySelector(`.commodity:nth-of-type(${index + 2}) .editC`).style.display = 'block'
+        document.querySelector(`.commodity:nth-of-type(${index + 2}) .finish`).style.display = 'block'
+        document.querySelector(`.commodity:nth-of-type(${index + 2}) .delete`).style.display = 'block'
+        var number = document.querySelector(`.commodity:nth-of-type(${index + 2}) .editC .editNumber`)
+        number.innerHTML = document.querySelector(`.commodity:nth-of-type(${index + 2}) .nowC span`).innerHTML
+        if (number.innerHTML > 1) {
+            document.querySelector(`.commodity:nth-of-type(${index + 2}) .editC .lessSpan`).style.display = 'none'
+        } else {
+            document.querySelector(`.commodity:nth-of-type(${index + 2}) .editC .lessSpan`).style.display = 'block'
+        }
     }
 
     delete(id) {
@@ -30,7 +93,6 @@ class CartUI extends Component {
             getUserConfirmation: (message, callback) => callback(window.confirm(message)) // 跳转拦截函数
         })
         //删除====================================================
-
         axios.post('/users/delete', {id: id})
             .then((res) => {
                 history.push('/cart')
@@ -129,19 +191,23 @@ class CartUI extends Component {
                                         <div className="rightText l">
                                             <div className="topText">{item.name}</div>
                                             <div className="capacityAndNumber nowC">
-                                                <div className="capacity">×<span>{item.number}</span></div>
+                                                <div className="capacity">数量：×<span>{item.number}</span></div>
                                             </div>
 
                                             <div className="capacityAndNumber editC" style={{display: 'none'}}>
-                                                <button className="less"> -</button>
+                                                <button className="less" onClick={() => this.less(index)}> -</button>
                                                 <span className="lessSpan"></span>
                                                 <div className="editNumber"></div>
-                                                <button className="add"> +</button>
+                                                <button className="add" onClick={() => this.add(index)}> +</button>
                                                 <span className="disblockId" style={{display: 'none'}}>{item._id}</span>
                                             </div>
                                             <div className="edit">
                                                 <span className="pirce">单价：￥<span>{item.price}</span></span>
-                                                <span className="editclick editButton delete"
+                                                <span className='editclick editButton bianji'
+                                                      onClick={() => this.edit(index)}>编辑</span>
+                                                <span className='editclick editButton finish' style={{display: 'none'}}
+                                                      onClick={() => this.finish(item._id, index)}>完成</span>
+                                                <span className="editclick editButton delete" style={{display: 'none'}}
                                                       onClick={() => this.delete(item._id)}>删除</span>
                                             </div>
                                         </div>
