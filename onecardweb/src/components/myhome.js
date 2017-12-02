@@ -52,6 +52,7 @@ class MyhomeUI extends React.Component {
     }
 
     render() {
+    	var props = this.props
         var list = '';//判定是否登录而产生不同页面，未登录返回code为100，登录返回的code为1
         if (this.props.product === 100) {
             list = (

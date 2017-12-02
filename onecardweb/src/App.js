@@ -6,6 +6,11 @@ import Classify from './components/Classify'
 import Cart from './components/Cart'
 import My from './components/My'
 import Detail from './components/Detail'
+
+import Login from './components/login'
+import Regist from './components/regist'
+import Order from './components/order'
+import Myhome from './components/myhome'
 import {
     BrowserRouter as Router,
     Route,
@@ -31,7 +36,17 @@ const App = () => (
                 <Route exact path="/home" component={Home}/>
                 <Route path="/cart" component={Cart}/>
                 <Route path="/classify" component={Classify}/>
-                <Route path="/my" component={My}/>
+                <Route path="/my" render={(props)=>
+                	<My>
+                		<Switch>
+		                    <Redirect exact from={`${props.match.url}/`} to={`${props.match.url}/myhome`}/>
+		                    <Route path={`${props.match.url}/myhome`} component={Myhome}/>
+		                    <Route path={`${props.match.url}/regist`} component={Regist}/>
+	                        <Route path={`${props.match.url}/login`} component={Login}/>
+	                        <Route path={`${props.match.url}/order`} component={Order}/>
+	                	</Switch>
+                	</My>
+                }/>
                 <Route path="/detail/:productid" component={Detail}/>               
             </Switch>
         </div>
